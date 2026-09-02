@@ -1,4 +1,3 @@
-
 import os
 import json
 import requests
@@ -69,15 +68,21 @@ def get_heading_ids():
     return heading_map
 
 def insert_after_block(after_block_id, blocks):
-    # 正确使用 after 查询参数，插入到指定块之后
-    url = f"https://api.notion.com/v1/blocks/{NOTION_PAGE_ID}/children?after={after_block_id}"
+    # 正确做法：在请求体 body 中提供 after 参数
+    url = f"https://api.notion.com/v1/blocks/{NOTION_PAGE_ID}/children"
     headers = {
         "Authorization": f"Bearer {NOTION_TOKEN}",
         "Notion-Version": "2022-06-28",
         "Content-Type": "application/json"
     }
-    data = {"children": blocks}
+    data = {
+        "children": blocks,
+        "after": after_block_id
+    }
     response = requests.patch(url, headers=headers, json=data)
+    # 如果出错，打印响应内容便于调试
+    if response.status_code != 200:
+        print(f"Error {response.status_code}: {response.text}")
     response.raise_for_status()
 
 def para(text):
