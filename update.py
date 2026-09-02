@@ -46,10 +46,28 @@ def get_heading_ids():
     response.raise_for_status()
     blocks = response.json()['results']
     heading_map = {}
+    # 关键词列表，用于匹配标题（不区分 emoji 和空格）
+    keywords = {
+        "考研政治热点": "politics",
+        "新闻热点": "news",
+        "剪辑任务": "editing",
+        "英语任务": "english"
+    }
     for block in blocks:
-        if block['type'] == 'heading_2':
-            text = block['heading_2']['rich_text'][0]['plain_text']
-            heading_map[text] = block['id']
+        # 兼容 H1 和 H2
+        if block['type'] in ['heading_1', 'heading_2']:
+            # 获取标题文本
+            text_obj = block[block['type']].get('rich_text', [])
+            if not text_obj:
+                continue
+            text = text_obj[0].get('plain_text', '')
+            # 去除 emoji 和空格后匹配关键词
+            for key, value in keywords.items():
+                # 检查标题文本是否包含关键词
+                if key in text:
+                    heading_map[key] = block['id']
+                    print(f"Found heading: {text} -> {value}")
+                    break
     return heading_map
 
 def insert_after_heading(heading_id, blocks):
@@ -91,19 +109,23 @@ def main():
         para(content['memory_essay'])
     ]
     
+    # 根据关键词插入
+    mapping = {
+        "考研政治热点": blocks_politics,
+        "新闻热点": blocks_news,
+        "剪辑任务": blocks_editing,
+        "英语任务": blocks_english
+    }
+    
     inserted_any = False
-    for key, blocks in [
-        ("🔥 考研政治热点", blocks_politics),
-        ("📰 新闻热点", blocks_news),
-        ("🎬 剪辑任务", blocks_editing),
-        ("🇬🇧 英语任务", blocks_english)
-    ]:
+    for key, blocks in mapping.items():
         if key in heading_map:
             insert_after_heading(heading_map[key], blocks)
             inserted_any = True
             print(f"Inserted under {key}")
     
     if not inserted_any:
+        # 如果还是找不到，就追加到页面末尾
         url = f"https://api.notion.com/v1/blocks/{NOTION_PAGE_ID}/children"
         headers = {
             "Authorization": f"Bearer {NOTION_TOKEN}",
