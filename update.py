@@ -46,7 +46,6 @@ def get_heading_ids():
     response.raise_for_status()
     blocks = response.json()['results']
     heading_map = {}
-    # 关键词列表，用于匹配标题（不区分 emoji 和空格）
     keywords = {
         "考研政治热点": "politics",
         "新闻热点": "news",
@@ -56,28 +55,29 @@ def get_heading_ids():
     for block in blocks:
         # 兼容 H1 和 H2
         if block['type'] in ['heading_1', 'heading_2']:
-            # 获取标题文本
             text_obj = block[block['type']].get('rich_text', [])
             if not text_obj:
                 continue
             text = text_obj[0].get('plain_text', '')
-            # 去除 emoji 和空格后匹配关键词
             for key, value in keywords.items():
-                # 检查标题文本是否包含关键词
                 if key in text:
                     heading_map[key] = block['id']
                     print(f"Found heading: {text} -> {value}")
                     break
     return heading_map
 
-def insert_after_heading(heading_id, blocks):
-    url = f"https://api.notion.com/v1/blocks/{heading_id}/children"
+def insert_after_block(after_block_id, blocks):
+    # 改为向页面添加子块，并放在 after_block_id 之后
+    url = f"https://api.notion.com/v1/blocks/{NOTION_PAGE_ID}/children"
     headers = {
         "Authorization": f"Bearer {NOTION_TOKEN}",
         "Notion-Version": "2022-06-28",
         "Content-Type": "application/json"
     }
-    data = {"children": blocks}
+    data = {
+        "children": blocks,
+        "after": after_block_id
+    }
     response = requests.patch(url, headers=headers, json=data)
     response.raise_for_status()
 
@@ -109,7 +109,6 @@ def main():
         para(content['memory_essay'])
     ]
     
-    # 根据关键词插入
     mapping = {
         "考研政治热点": blocks_politics,
         "新闻热点": blocks_news,
@@ -120,12 +119,12 @@ def main():
     inserted_any = False
     for key, blocks in mapping.items():
         if key in heading_map:
-            insert_after_heading(heading_map[key], blocks)
+            insert_after_block(heading_map[key], blocks)
             inserted_any = True
-            print(f"Inserted under {key}")
+            print(f"Inserted after {key}")
     
     if not inserted_any:
-        # 如果还是找不到，就追加到页面末尾
+        # 如果没有找到标题，则直接追加到页面末尾
         url = f"https://api.notion.com/v1/blocks/{NOTION_PAGE_ID}/children"
         headers = {
             "Authorization": f"Bearer {NOTION_TOKEN}",
