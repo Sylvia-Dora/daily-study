@@ -67,9 +67,9 @@ def get_heading_ids():
                     break
     return heading_map
 
-def insert_into_heading(heading_id, blocks):
-    # 向标题块内部添加子块，新内容会出现在子块列表最前面
-    url = f"https://api.notion.com/v1/blocks/{heading_id}/children"
+def insert_after_block(after_block_id, blocks):
+    # 正确使用 after 查询参数，插入到指定块之后
+    url = f"https://api.notion.com/v1/blocks/{NOTION_PAGE_ID}/children?after={after_block_id}"
     headers = {
         "Authorization": f"Bearer {NOTION_TOKEN}",
         "Notion-Version": "2022-06-28",
@@ -122,11 +122,12 @@ def main():
     inserted_any = False
     for key, blocks in mapping.items():
         if key in heading_map:
-            insert_into_heading(heading_map[key], blocks)
+            insert_after_block(heading_map[key], blocks)
             inserted_any = True
-            print(f"Inserted into {key}")
+            print(f"Inserted after {key}")
     
     if not inserted_any:
+        # 如果没有找到标题，则直接追加到页面末尾
         url = f"https://api.notion.com/v1/blocks/{NOTION_PAGE_ID}/children"
         headers = {
             "Authorization": f"Bearer {NOTION_TOKEN}",
