@@ -7,20 +7,22 @@ DEEPSEEK_API_KEY = os.environ['DEEPSEEK_API_KEY']
 NOTION_TOKEN = os.environ['NOTION_TOKEN']
 NOTION_PAGE_ID = os.environ['NOTION_PAGE_ID']
 
-def generate_content():
+START_DATE = datetime.date(2026, 9, 2)
+
+def generate_content(day_number):
     url = "https://api.deepseek.com/chat/completions"
     headers = {
         "Authorization": f"Bearer {DEEPSEEK_API_KEY}",
         "Content-Type": "application/json"
     }
-    prompt = """请生成今日学习内容，返回 JSON 格式，包含以下字段：
-{
+    prompt = f"""请生成今日学习内容，返回 JSON 格式，包含以下字段：
+{{
   "politics_hotspot": "考研政治热点（简短总结，50字内）",
   "news_hotspot": "新闻热点（简短总结，50字内）",
   "editing_task": "剪辑新手任务（今天学习一个技巧，含作业，80字内）",
-  "memory_essay": "30天趣味记忆小作文第X篇（英文原文+中文翻译+重点词汇列表，英文约80词）"
-}
-注意：今天是2026年8月31日，考研政治热点请基于此时政。英文小作文使用红宝书考研词汇，词汇难度适中。返回纯JSON，不要有其他文字。"""
+  "memory_essay": "30天趣味记忆第{day_number}篇（英文原文+中文翻译+重点词汇列表，英文约80词，使用红宝书考研词汇）"
+}}
+注意：考研政治热点请基于当前时政。英文小作文必须明确标注“第{day_number}篇”。返回纯JSON，不要有其他文字。"""
 
     data = {
         "model": "deepseek-chat",
@@ -53,7 +55,6 @@ def get_heading_ids():
         "英语任务": "english"
     }
     for block in blocks:
-        # 兼容 H1 和 H2
         if block['type'] in ['heading_1', 'heading_2']:
             text_obj = block[block['type']].get('rich_text', [])
             if not text_obj:
@@ -66,18 +67,15 @@ def get_heading_ids():
                     break
     return heading_map
 
-def insert_after_block(after_block_id, blocks):
-    # 改为向页面添加子块，并放在 after_block_id 之后
-    url = f"https://api.notion.com/v1/blocks/{NOTION_PAGE_ID}/children"
+def insert_into_heading(heading_id, blocks):
+    # 向标题块内部添加子块，新内容会出现在子块列表最前面
+    url = f"https://api.notion.com/v1/blocks/{heading_id}/children"
     headers = {
         "Authorization": f"Bearer {NOTION_TOKEN}",
         "Notion-Version": "2022-06-28",
         "Content-Type": "application/json"
     }
-    data = {
-        "children": blocks,
-        "after": after_block_id
-    }
+    data = {"children": blocks}
     response = requests.patch(url, headers=headers, json=data)
     response.raise_for_status()
 
@@ -89,8 +87,13 @@ def para(text):
     }
 
 def main():
-    content = generate_content()
-    date_str = datetime.date.today().strftime("%Y-%m-%d")
+    today = datetime.date.today()
+    day_number = (today - START_DATE).days + 1
+    if day_number < 1:
+        day_number = 1
+
+    content = generate_content(day_number)
+    date_str = today.strftime("%Y-%m-%d")
     
     heading_map = get_heading_ids()
     print("Found headings:", heading_map)
@@ -119,12 +122,11 @@ def main():
     inserted_any = False
     for key, blocks in mapping.items():
         if key in heading_map:
-            insert_after_block(heading_map[key], blocks)
+            insert_into_heading(heading_map[key], blocks)
             inserted_any = True
-            print(f"Inserted after {key}")
+            print(f"Inserted into {key}")
     
     if not inserted_any:
-        # 如果没有找到标题，则直接追加到页面末尾
         url = f"https://api.notion.com/v1/blocks/{NOTION_PAGE_ID}/children"
         headers = {
             "Authorization": f"Bearer {NOTION_TOKEN}",
