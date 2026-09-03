@@ -9,7 +9,6 @@ DEEPSEEK_API_KEY = os.environ['DEEPSEEK_API_KEY']
 # 开始日期：2026年9月3日 = 第1天
 START_DATE = datetime.date(2026, 9, 3)
 
-# 备用金句
 QUOTES_BACKUP = [
     {"cn": "人生就像一盒巧克力，你永远不知道下一颗是什么味道。", "en": "Life is like a box of chocolates. You never know what you're gonna get."},
     {"cn": "慢慢来，比较快。", "en": "Slow is smooth, smooth is fast."},
@@ -90,58 +89,35 @@ def build_html(data, day_number, today_str):
     self_test = html_escape(data.get('self_test', ''))
 
     study_html = f"""
-    <div style="background:#e6f4e6;border-radius:16px;padding:16px;margin-bottom:12px;">
-        <div style="font-weight:bold;color:#4a7c59;margin-bottom:8px;">🔥 考研政治热点</div>
-        <div style="color:#3d5a4e;font-size:14px;line-height:1.6;">{politics}</div>
+    <div class="content-card">
+        <div class="section-title">🔥 考研政治热点</div>
+        <div>{politics}</div>
     </div>
-    <div style="background:#e6f4e6;border-radius:16px;padding:16px;margin-bottom:12px;">
-        <div style="font-weight:bold;color:#4a7c59;margin-bottom:8px;">📰 新闻热点</div>
-        <div style="color:#3d5a4e;font-size:14px;line-height:1.6;">{news}</div>
+    <div class="content-card">
+        <div class="section-title">📰 新闻热点</div>
+        <div>{news}</div>
     </div>
     """
 
     video_html = f"""
-    <div style="background:#e3eef7;border-radius:16px;padding:16px;">
-        <div style="font-weight:bold;color:#4a6f8c;margin-bottom:8px;">🎬 今日剪辑任务</div>
-        <div style="color:#3d5a4e;font-size:14px;line-height:1.6;">{editing}</div>
+    <div class="content-card">
+        <div class="section-title">🎬 今日剪辑任务</div>
+        <div>{editing}</div>
     </div>
     """
 
     english_html = f"""
-    <div style="background:#fdf3e3;border-radius:16px;padding:16px;margin-bottom:12px;">
-        <div style="font-weight:bold;color:#b0844f;margin-bottom:8px;">📖 30天趣味记忆·第{day_number}篇</div>
-        <div style="color:#5a4a3a;font-size:13px;line-height:1.7;white-space:pre-wrap;">{essay}</div>
+    <div class="content-card">
+        <div class="section-title">📖 30天趣味记忆·第{day_number}篇</div>
+        <div style="white-space:pre-wrap;">{essay}</div>
     </div>
-    <div style="background:#fdf3e3;border-radius:16px;padding:16px;">
-        <div style="font-weight:bold;color:#b0844f;margin-bottom:8px;">✅ 每日自测</div>
-        <div style="color:#5a4a3a;font-size:13px;line-height:1.7;white-space:pre-wrap;">{self_test}</div>
+    <div class="content-card">
+        <div class="section-title">✅ 每日自测</div>
+        <div style="white-space:pre-wrap;">{self_test}</div>
     </div>
     """
 
-    body_html = f"""
-    <div style="background:#ede4f4;border-radius:16px;padding:16px;margin-bottom:12px;">
-        <div style="font-weight:bold;color:#84609e;margin-bottom:8px;">⚖️ 体重记录</div>
-        <div style="color:#5a4a5a;font-size:14px;line-height:1.6;">
-            当前目标：150斤 → 120斤<br>
-            今日体重：<input type="number" id="weightInput" placeholder="输入今日体重(斤)" style="width:100%;padding:8px;border-radius:8px;border:1px solid #ccc;margin-top:8px;font-size:14px;">
-            <button onclick="saveWeight()" style="margin-top:8px;padding:8px 16px;border-radius:8px;border:none;background:#84609e;color:#fff;font-size:14px;">保存</button>
-        </div>
-    </div>
-    <div style="background:#ede4f4;border-radius:16px;padding:16px;">
-        <div style="font-weight:bold;color:#84609e;margin-bottom:8px;">💧 喝水记录</div>
-        <div style="color:#5a4a5a;font-size:14px;">
-            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
-                <button onclick="addWater('矿泉水',250)" style="padding:8px 12px;border-radius:8px;border:none;background:#e0d4e8;font-size:20px;cursor:pointer;">💧</button>
-                <button onclick="addWater('牛奶',250)" style="padding:8px 12px;border-radius:8px;border:none;background:#e0d4e8;font-size:20px;cursor:pointer;">🥛</button>
-                <button onclick="addWater('奶茶',500)" style="padding:8px 12px;border-radius:8px;border:none;background:#e0d4e8;font-size:20px;cursor:pointer;">🧋</button>
-                <button onclick="addWater('咖啡',300)" style="padding:8px 12px;border-radius:8px;border:none;background:#e0d4e8;font-size:20px;cursor:pointer;">☕</button>
-                <button onclick="addWater('茶',300)" style="padding:8px 12px;border-radius:8px;border:none;background:#e0d4e8;font-size:20px;cursor:pointer;">🍵</button>
-                <button onclick="addWater('饮料',500)" style="padding:8px 12px;border-radius:8px;border:none;background:#e0d4e8;font-size:20px;cursor:pointer;">🥤</button>
-            </div>
-            <div id="waterLog" style="font-size:12px;color:#84609e;">今天还没记录喝水</div>
-        </div>
-    </div>
-    """
+    body_html = ""  # 前端直接处理，这里留空
 
     return study_html, video_html, english_html, body_html
 
@@ -169,21 +145,36 @@ def main():
 
     study_html, video_html, english_html, body_html = build_html(data, day_number, today_str)
 
-    output = {
+    # 读取现有的 data.json 历史
+    history = {}
+    if os.path.exists('data.json'):
+        try:
+            with open('data.json', 'r', encoding='utf-8') as f:
+                old = json.load(f)
+                if 'history' in old:
+                    history = old['history']
+        except:
+            history = {}
+
+    # 更新今天的数据
+    history[today_str] = {
         "quote_cn": data.get("quote_cn", ""),
         "quote_en": data.get("quote_en", ""),
-        "date": today_str,
-        "day_number": day_number,
         "study_html": study_html,
         "video_html": video_html,
         "english_html": english_html,
         "body_html": body_html
     }
 
-    with open("data.json", "w", encoding="utf-8") as f:
+    output = {
+        "history": history,
+        "latest": today_str
+    }
+
+    with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    print(f"data.json 更新成功！第 {day_number} 天")
+    print(f"✅ data.json 更新成功！第 {day_number} 天，历史共 {len(history)} 天")
 
 if __name__ == "__main__":
     main()
