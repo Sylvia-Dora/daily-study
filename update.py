@@ -2,14 +2,14 @@ import os
 import json
 import requests
 import datetime
-import re
+import random
 
 DEEPSEEK_API_KEY = os.environ['DEEPSEEK_API_KEY']
 
 # 开始日期：2026年9月3日 = 第1天
 START_DATE = datetime.date(2026, 9, 3)
 
-# 每日金句备用库（AI 不可用时使用）
+# 备用金句
 QUOTES_BACKUP = [
     {"cn": "人生就像一盒巧克力，你永远不知道下一颗是什么味道。", "en": "Life is like a box of chocolates. You never know what you're gonna get."},
     {"cn": "慢慢来，比较快。", "en": "Slow is smooth, smooth is fast."},
@@ -44,7 +44,6 @@ QUOTES_BACKUP = [
 ]
 
 def generate_all_content(day_number):
-    """调用 DeepSeek 生成当天所有内容"""
     url = "https://api.deepseek.com/chat/completions"
     headers = {
         "Authorization": f"Bearer {DEEPSEEK_API_KEY}",
@@ -58,9 +57,9 @@ def generate_all_content(day_number):
   "news_hotspot": "新闻热点（50字内）",
   "editing_task": "剪辑新手任务（今天学一个技巧，含作业，80字内）",
   "memory_essay": "30天趣味记忆第{day_number}篇（英文原文+中文翻译+重点词汇列表，英文约80词，使用红宝书考研词汇）",
-  "self_test": "每日自测（3个中译英+3个英译中+2个句子填空，基于当天小作文）"
+  "self_test": "每日自测（3个中译英+3个英译中+2个句子填空，基于当天小作文，用纯文本格式）"
 }}
-注意：今天是{datetime.date.today().strftime('%Y年%m月%d日')}，考研政治热点请基于当前时政。英文小作文必须明确标注“第{day_number}篇”。返回纯JSON，不要有其他文字。"""
+注意：今天是{datetime.date.today().strftime('%Y年%m月%d日')}，考研政治热点请基于当前时政。英文小作文必须明确标注“第{day_number}篇”。self_test 必须返回字符串，不要用嵌套对象。返回纯JSON，不要有其他文字。"""
 
     data = {
         "model": "deepseek-chat",
@@ -75,6 +74,7 @@ def generate_all_content(day_number):
     if content.startswith("```"):
         content = content.split('\n', 1)[1].rsplit('```', 1)[0]
     return json.loads(content)
+
 def html_escape(text):
     if isinstance(text, dict) or isinstance(text, list):
         text = json.dumps(text, ensure_ascii=False)
@@ -82,7 +82,7 @@ def html_escape(text):
         text = str(text)
     return text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;').replace("'", '&#39;')
 
-    """构建各页面的 HTML 内容"""
+def build_html(data, day_number, today_str):
     politics = html_escape(data.get('politics_hotspot', ''))
     news = html_escape(data.get('news_hotspot', ''))
     editing = html_escape(data.get('editing_task', ''))
@@ -156,8 +156,6 @@ def main():
         data = generate_all_content(day_number)
     except Exception as e:
         print(f"DeepSeek 调用失败: {e}")
-        # 使用备用金句
-        import random
         quote = random.choice(QUOTES_BACKUP)
         data = {
             "quote_cn": quote["cn"],
@@ -185,7 +183,7 @@ def main():
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ data.json 更新成功！第 {day_number} 天")
+    print(f"data.json 更新成功！第 {day_number} 天")
 
 if __name__ == "__main__":
     main()
