@@ -24,6 +24,12 @@ jobs:
       - name: Run update script
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          NOTION_PAGE_ID: '3c08bcf962878053bed1fe3b039e45a9'
         run: python update.py
+
+      - name: Commit and push data.json
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data.json
+          git diff --cached --quiet || git commit -m "Daily update data.json"
+          git push
