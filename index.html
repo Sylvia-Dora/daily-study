@@ -9,143 +9,140 @@
 
         body {
             font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
-            background: #f7faf7;
+            background: linear-gradient(145deg, #cbe8d6 0%, #a8d4bd 40%, #b8dfc8 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            padding: 10px;
+            padding: 12px;
         }
 
         .app {
             width: 100%;
             max-width: 420px;
-            background: #ffffff;
-            border-radius: 24px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            padding: 20px 16px;
+            background: linear-gradient(165deg, #c5e4d1 0%, #b3d9c3 30%, #ccead8 70%, #badfc9 100%);
+            border-radius: 28px;
+            box-shadow: 0 8px 30px rgba(50, 90, 70, 0.25);
+            padding: 22px 16px;
             position: relative;
             min-height: 95vh;
+            overflow: hidden;
         }
 
         .page { display: none; }
         .page.active { display: block; }
 
-        /* 顶部 */
-        .header {
-            text-align: center;
-            margin-bottom: 8px;
-        }
+        .teddy { width: 52px; height: 52px; margin: 0 auto 6px; display: block; }
 
-        .title {
-            font-size: 20px;
-            font-weight: bold;
-            color: #5d7b6f;
-            letter-spacing: 0.5px;
-        }
+        .header { text-align: center; margin-bottom: 6px; }
+        .title { font-size: 19px; font-weight: bold; color: #2f5d47; letter-spacing: 0.5px; text-shadow: 0 1px 2px rgba(255,255,255,0.5); }
+        .subtitle { font-size: 12px; color: #4d7a63; margin-top: 4px; font-weight: 500; }
+        .greeting { text-align: center; font-size: 16px; color: #2f5d47; margin: 10px 0 4px; font-weight: 600; }
 
-        .subtitle {
-            font-size: 12px;
-            color: #9aa5a0;
-            margin-top: 4px;
-        }
-
-        .greeting {
-            text-align: center;
-            font-size: 16px;
-            color: #6b8f7e;
-            margin: 12px 0 4px;
-            font-weight: 500;
-        }
-
-        /* 金句区域 */
         .quote-box {
-            background: linear-gradient(135deg, #f0f7f4, #e8f0ed);
-            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.35);
+            border-radius: 18px;
             padding: 16px 14px;
             margin: 12px 0;
             text-align: center;
-            border-left: 4px solid #7ba896;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(4px);
         }
+        .quote-cn { font-size: 14px; color: #1f4634; line-height: 1.6; margin-bottom: 8px; font-weight: 500; }
+        .quote-en { font-size: 11px; color: #3d6b55; line-height: 1.5; font-style: italic; }
 
-        .quote-cn {
-            font-size: 14px;
-            color: #3d5a4e;
-            line-height: 1.6;
-            margin-bottom: 8px;
-        }
-
-        .quote-en {
-            font-size: 11px;
-            color: #7d948a;
-            line-height: 1.5;
-            font-style: italic;
-        }
-
-        /* 模块网格 */
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin: 16px 0;
-        }
-
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
         .card {
-            border-radius: 18px;
+            border-radius: 20px;
             padding: 20px 12px;
             text-align: center;
             cursor: pointer;
             transition: transform 0.2s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(40, 80, 60, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
+        .card:active { transform: scale(0.95); }
+        .card-icon { font-size: 34px; margin-bottom: 8px; }
+        .card-label { font-size: 15px; font-weight: 700; letter-spacing: 0.3px; }
+        .card-study { background: #cfead8; color: #2f6b4a; }
+        .card-video { background: #c9e2e8; color: #2f5f6b; }
+        .card-english { background: #f0e4d0; color: #7a5f3a; }
+        .card-body { background: #dcd0e8; color: #5f4a73; }
 
-        .card:active { transform: scale(0.96); }
+        .dog-tip { text-align: center; font-size: 12px; color: #3f6b55; margin-top: 10px; font-weight: 500; }
+        .dog-tip span { font-size: 20px; margin-right: 4px; }
 
-        .card-icon { font-size: 36px; margin-bottom: 8px; }
-        .card-label { font-size: 15px; font-weight: 600; }
-
-        .card-study { background: #e6f4e6; color: #4a7c59; }
-        .card-video { background: #e3eef7; color: #4a6f8c; }
-        .card-english { background: #fdf3e3; color: #b0844f; }
-        .card-body { background: #ede4f4; color: #84609e; }
-
-        /* 小狗提示 */
-        .dog-tip {
-            text-align: center;
-            font-size: 12px;
-            color: #a0a8a4;
-            margin-top: 10px;
-        }
-
-        .dog-tip span { font-size: 18px; margin-right: 4px; }
-
-        /* 返回按钮 */
         .back-btn {
-            background: #f0f4f2;
+            background: rgba(255, 255, 255, 0.5);
             border: none;
             border-radius: 12px;
             padding: 8px 16px;
             font-size: 14px;
-            color: #5d7b6f;
+            color: #2f5d47;
             cursor: pointer;
             margin-bottom: 12px;
+            font-weight: 600;
         }
 
-        /* 子页面标题 */
-        .page-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #5d7b6f;
-            text-align: center;
+        .page-title { font-size: 18px; font-weight: bold; color: #2f5d47; text-align: center; margin-bottom: 8px; }
+        .page-date { text-align: center; font-size: 12px; color: #4d7a63; margin-bottom: 16px; }
+
+        /* 子页面背景色 */
+        #studyPage { background: #d9f0e0; border-radius: 20px; padding: 16px; min-height: 80vh; }
+        #videoPage { background: #d6e6f0; border-radius: 20px; padding: 16px; min-height: 80vh; }
+        #englishPage { background: #f5ead6; border-radius: 20px; padding: 16px; min-height: 80vh; }
+        #bodyPage { background: #e6ddf2; border-radius: 20px; padding: 16px; min-height: 80vh; }
+
+        .date-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 12px;
         }
-
-        .page-date {
-            text-align: center;
-            font-size: 12px;
-            color: #9aa5a0;
-            margin-bottom: 16px;
+        .date-nav button {
+            background: #ffffffaa;
+            border: none;
+            border-radius: 10px;
+            padding: 6px 12px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #2f5d47;
         }
+        .date-nav span { font-size: 14px; font-weight: 600; color: #2f5d47; }
+
+        .content-card {
+            background: #ffffffd0;
+            border-radius: 16px;
+            padding: 14px;
+            margin-bottom: 12px;
+            color: #2f5d47;
+        }
+        .content-card .section-title { font-weight: bold; margin-bottom: 8px; }
+
+        .weight-progress { margin: 12px 0; }
+        .progress-bar {
+            height: 14px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #a67cc0;
+            width: 0%;
+            transition: width 0.5s;
+        }
+
+        .water-buttons button {
+            font-size: 24px;
+            background: #ffffffcc;
+            border: none;
+            border-radius: 12px;
+            padding: 10px 14px;
+            margin: 4px;
+            cursor: pointer;
+        }
+        .water-buttons button:active { transform: scale(0.9); }
     </style>
 </head>
 <body>
@@ -153,7 +150,21 @@
         <!-- 首页 -->
         <div id="homePage" class="page active">
             <div class="header">
-                <div class="title">🧸 Sylvia's Daily Beauty Life</div>
+                <svg class="teddy" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="22" cy="22" r="16" fill="#8B5E3C"/>
+                    <circle cx="22" cy="22" r="10" fill="#A0714A"/>
+                    <circle cx="78" cy="22" r="16" fill="#8B5E3C"/>
+                    <circle cx="78" cy="22" r="10" fill="#A0714A"/>
+                    <circle cx="50" cy="50" r="38" fill="#A0714A"/>
+                    <ellipse cx="50" cy="58" rx="20" ry="16" fill="#D4A574"/>
+                    <circle cx="38" cy="42" r="6" fill="#3D2B1F"/>
+                    <circle cx="62" cy="42" r="6" fill="#3D2B1F"/>
+                    <circle cx="40" cy="40" r="2" fill="#FFFFFF"/>
+                    <circle cx="64" cy="40" r="2" fill="#FFFFFF"/>
+                    <ellipse cx="50" cy="55" rx="5" ry="4" fill="#3D2B1F"/>
+                    <path d="M45 62 Q50 68 55 62" stroke="#3D2B1F" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                </svg>
+                <div class="title">Sylvia's Daily Beauty Life</div>
                 <div class="subtitle" id="homeDate"></div>
             </div>
             <div class="greeting" id="greeting"></div>
@@ -186,7 +197,11 @@
         <div id="studyPage" class="page">
             <button class="back-btn" onclick="showPage('homePage')">← 返回</button>
             <div class="page-title">📚 Study</div>
-            <div class="page-date" id="studyDate"></div>
+            <div class="date-nav">
+                <button onclick="changeDate(-1)">←</button>
+                <span id="studyDate">今天</span>
+                <button onclick="changeDate(1)">→</button>
+            </div>
             <div id="studyContent"></div>
         </div>
 
@@ -194,7 +209,11 @@
         <div id="videoPage" class="page">
             <button class="back-btn" onclick="showPage('homePage')">← 返回</button>
             <div class="page-title">🎬 Video</div>
-            <div class="page-date" id="videoDate"></div>
+            <div class="date-nav">
+                <button onclick="changeDate(-1)">←</button>
+                <span id="videoDate">今天</span>
+                <button onclick="changeDate(1)">→</button>
+            </div>
             <div id="videoContent"></div>
         </div>
 
@@ -202,7 +221,11 @@
         <div id="englishPage" class="page">
             <button class="back-btn" onclick="showPage('homePage')">← 返回</button>
             <div class="page-title">🇬🇧 English</div>
-            <div class="page-date" id="englishDate"></div>
+            <div class="date-nav">
+                <button onclick="changeDate(-1)">←</button>
+                <span id="englishDate">今天</span>
+                <button onclick="changeDate(1)">→</button>
+            </div>
             <div id="englishContent"></div>
         </div>
 
@@ -211,29 +234,54 @@
             <button class="back-btn" onclick="showPage('homePage')">← 返回</button>
             <div class="page-title">⚖️ Body</div>
             <div class="page-date" id="bodyDate"></div>
-            <div id="bodyContent"></div>
+            <div class="content-card">
+                <div class="section-title">📉 体重记录</div>
+                <div>目标：150斤 → 120斤</div>
+                <input type="number" id="weightInput" placeholder="输入今日体重(斤)" style="width:100%;padding:10px;border-radius:10px;border:1px solid #ccc;margin-top:10px;font-size:16px;">
+                <button onclick="saveWeight()" style="margin-top:10px;padding:10px 20px;border-radius:10px;border:none;background:#84609e;color:#fff;font-size:16px;">保存体重</button>
+                <div class="weight-progress">
+                    <div style="display:flex;justify-content:space-between;font-size:12px;">
+                        <span>150斤</span><span id="currentWeightDisplay">未记录</span><span>120斤</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill" id="weightProgressFill"></div></div>
+                </div>
+            </div>
+            <div class="content-card">
+                <div class="section-title">💧 喝水记录</div>
+                <div class="water-buttons">
+                    <button onclick="addWater('矿泉水', 250)">💧</button>
+                    <button onclick="addWater('牛奶', 250)">🥛</button>
+                    <button onclick="addWater('奶茶', 500)">🧋</button>
+                    <button onclick="addWater('咖啡', 300)">☕</button>
+                    <button onclick="addWater('茶', 300)">🍵</button>
+                    <button onclick="addWater('饮料', 500)">🥤</button>
+                    <button onclick="addWater('果汁', 300)">🧃</button>
+                    <button onclick="addWater('热饮', 250)">🫖</button>
+                </div>
+                <div style="margin-top:10px;">
+                    <input type="number" id="customWaterInput" placeholder="自定义毫升" style="width:60%;padding:8px;border-radius:8px;border:1px solid #ccc;">
+                    <button onclick="addCustomWater()" style="padding:8px 12px;border-radius:8px;border:none;background:#84609e;color:#fff;">添加</button>
+                </div>
+                <div id="waterLog" style="font-size:13px;margin-top:8px;color:#5f4a73;">今天还没记录喝水</div>
+            </div>
         </div>
     </div>
 
     <script>
-        // 页面切换
+        // ---------- 页面切换 ----------
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
         }
 
-        // 日期时间
+        // ---------- 日期时间 ----------
         function updateDateTime() {
             const now = new Date();
             const dateStr = now.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' });
             document.getElementById('homeDate').textContent = dateStr;
-            document.getElementById('studyDate').textContent = dateStr;
-            document.getElementById('videoDate').textContent = dateStr;
-            document.getElementById('englishDate').textContent = dateStr;
             document.getElementById('bodyDate').textContent = dateStr;
         }
 
-        // 问候语
         function updateGreeting() {
             const hour = new Date().getHours();
             let msg = '';
@@ -245,25 +293,108 @@
             document.getElementById('greeting').textContent = msg;
         }
 
-        // 加载数据
+        // ---------- 数据加载与历史 ----------
+        let currentDateStr = new Date().toISOString().slice(0,10); // 默认今天
+        let historyData = {};
+
         async function loadData() {
             try {
-                const response = await fetch('data.json');
-                const data = await response.json();
-                document.getElementById('quoteCn').textContent = data.quote_cn;
-                document.getElementById('quoteEn').textContent = data.quote_en;
-                document.getElementById('studyContent').innerHTML = data.study_html;
-                document.getElementById('videoContent').innerHTML = data.video_html;
-                document.getElementById('englishContent').innerHTML = data.english_html;
-                document.getElementById('bodyContent').innerHTML = data.body_html;
+                const res = await fetch('data.json');
+                const data = await res.json();
+                historyData = data.history || {};
+                const latestKey = data.latest || currentDateStr;
+                currentDateStr = latestKey;
+                displayDate(currentDateStr);
+                // 更新首页金句
+                const todayData = historyData[currentDateStr];
+                if (todayData) {
+                    document.getElementById('quoteCn').textContent = todayData.quote_cn || '';
+                    document.getElementById('quoteEn').textContent = todayData.quote_en || '';
+                }
             } catch(e) {
-                console.error('加载数据失败', e);
+                console.error('加载 data.json 失败', e);
             }
         }
 
+        function displayDate(dateStr) {
+            document.getElementById('studyDate').textContent = dateStr === currentDateStr ? '今天' : dateStr;
+            document.getElementById('videoDate').textContent = dateStr === currentDateStr ? '今天' : dateStr;
+            document.getElementById('englishDate').textContent = dateStr === currentDateStr ? '今天' : dateStr;
+            const dayData = historyData[dateStr];
+            if (dayData) {
+                document.getElementById('studyContent').innerHTML = dayData.study_html || '<p>暂无内容</p>';
+                document.getElementById('videoContent').innerHTML = dayData.video_html || '<p>暂无内容</p>';
+                document.getElementById('englishContent').innerHTML = dayData.english_html || '<p>暂无内容</p>';
+            } else {
+                document.getElementById('studyContent').innerHTML = '<p>这一天还没有记录哦</p>';
+                document.getElementById('videoContent').innerHTML = '<p>这一天还没有记录哦</p>';
+                document.getElementById('englishContent').innerHTML = '<p>这一天还没有记录哦</p>';
+            }
+        }
+
+        function changeDate(delta) {
+            const d = new Date(currentDateStr + 'T00:00:00');
+            d.setDate(d.getDate() + delta);
+            currentDateStr = d.toISOString().slice(0,10);
+            displayDate(currentDateStr);
+        }
+
+        // ---------- 体重记录（本地存储） ----------
+        function getTodayKey() {
+            return new Date().toISOString().slice(0,10);
+        }
+
+        function saveWeight() {
+            const weight = document.getElementById('weightInput').value;
+            if (!weight) return alert('请输入体重');
+            localStorage.setItem('weight_' + getTodayKey(), weight);
+            updateWeightUI();
+            alert('体重已保存');
+        }
+
+        function updateWeightUI() {
+            const savedWeight = localStorage.getItem('weight_' + getTodayKey());
+            if (savedWeight) {
+                document.getElementById('currentWeightDisplay').textContent = savedWeight + '斤';
+                const start = 150, end = 120;
+                let progress = ((start - parseFloat(savedWeight)) / (start - end)) * 100;
+                progress = Math.max(0, Math.min(100, progress));
+                document.getElementById('weightProgressFill').style.width = progress + '%';
+            } else {
+                document.getElementById('currentWeightDisplay').textContent = '未记录';
+                document.getElementById('weightProgressFill').style.width = '0%';
+            }
+        }
+
+        // ---------- 喝水记录（本地存储） ----------
+        function addWater(type, ml) {
+            const key = 'water_' + getTodayKey();
+            let log = JSON.parse(localStorage.getItem(key) || '[]');
+            log.push({type, ml, time: new Date().toLocaleTimeString()});
+            localStorage.setItem(key, JSON.stringify(log));
+            updateWaterUI();
+        }
+
+        function addCustomWater() {
+            const ml = document.getElementById('customWaterInput').value;
+            if (!ml) return alert('请输入毫升数');
+            addWater('自定义', parseInt(ml));
+            document.getElementById('customWaterInput').value = '';
+        }
+
+        function updateWaterUI() {
+            const key = 'water_' + getTodayKey();
+            let log = JSON.parse(localStorage.getItem(key) || '[]');
+            const total = log.reduce((sum, item) => sum + item.ml, 0);
+            document.getElementById('waterLog').innerHTML = log.map(item => `${item.type} ${item.ml}ml`).join('，') + (log.length ? ` 总计：${total}ml` : '今天还没记录喝水');
+        }
+
+        // ---------- 初始化 ----------
         updateDateTime();
         updateGreeting();
         loadData();
+        updateWeightUI();
+        updateWaterUI();
         setInterval(updateDateTime, 60000);
     </script>
 </body>
