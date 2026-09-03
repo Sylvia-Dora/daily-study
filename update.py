@@ -75,12 +75,13 @@ def generate_all_content(day_number):
     if content.startswith("```"):
         content = content.split('\n', 1)[1].rsplit('```', 1)[0]
     return json.loads(content)
-
 def html_escape(text):
-    """转义 HTML 特殊字符"""
+    if isinstance(text, dict) or isinstance(text, list):
+        text = json.dumps(text, ensure_ascii=False)
+    elif not isinstance(text, str):
+        text = str(text)
     return text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;').replace("'", '&#39;')
 
-def build_html(data, day_number, today_str):
     """构建各页面的 HTML 内容"""
     politics = html_escape(data.get('politics_hotspot', ''))
     news = html_escape(data.get('news_hotspot', ''))
