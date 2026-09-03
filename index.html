@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sylvia's Daily Beauty Life</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+            background: #f7faf7;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 10px;
+        }
+
+        .app {
+            width: 100%;
+            max-width: 420px;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 20px 16px;
+            position: relative;
+            min-height: 95vh;
+        }
+
+        .page { display: none; }
+        .page.active { display: block; }
+
+        /* 顶部 */
+        .header {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #5d7b6f;
+            letter-spacing: 0.5px;
+        }
+
+        .subtitle {
+            font-size: 12px;
+            color: #9aa5a0;
+            margin-top: 4px;
+        }
+
+        .greeting {
+            text-align: center;
+            font-size: 16px;
+            color: #6b8f7e;
+            margin: 12px 0 4px;
+            font-weight: 500;
+        }
+
+        /* 金句区域 */
+        .quote-box {
+            background: linear-gradient(135deg, #f0f7f4, #e8f0ed);
+            border-radius: 16px;
+            padding: 16px 14px;
+            margin: 12px 0;
+            text-align: center;
+            border-left: 4px solid #7ba896;
+        }
+
+        .quote-cn {
+            font-size: 14px;
+            color: #3d5a4e;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .quote-en {
+            font-size: 11px;
+            color: #7d948a;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        /* 模块网格 */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .card {
+            border-radius: 18px;
+            padding: 20px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .card:active { transform: scale(0.96); }
+
+        .card-icon { font-size: 36px; margin-bottom: 8px; }
+        .card-label { font-size: 15px; font-weight: 600; }
+
+        .card-study { background: #e6f4e6; color: #4a7c59; }
+        .card-video { background: #e3eef7; color: #4a6f8c; }
+        .card-english { background: #fdf3e3; color: #b0844f; }
+        .card-body { background: #ede4f4; color: #84609e; }
+
+        /* 小狗提示 */
+        .dog-tip {
+            text-align: center;
+            font-size: 12px;
+            color: #a0a8a4;
+            margin-top: 10px;
+        }
+
+        .dog-tip span { font-size: 18px; margin-right: 4px; }
+
+        /* 返回按钮 */
+        .back-btn {
+            background: #f0f4f2;
+            border: none;
+            border-radius: 12px;
+            padding: 8px 16px;
+            font-size: 14px;
+            color: #5d7b6f;
+            cursor: pointer;
+            margin-bottom: 12px;
+        }
+
+        /* 子页面标题 */
+        .page-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #5d7b6f;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .page-date {
+            text-align: center;
+            font-size: 12px;
+            color: #9aa5a0;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <!-- 首页 -->
+        <div id="homePage" class="page active">
+            <div class="header">
+                <div class="title">🧸 Sylvia's Daily Beauty Life</div>
+                <div class="subtitle" id="homeDate"></div>
+            </div>
+            <div class="greeting" id="greeting"></div>
+            <div class="quote-box">
+                <div class="quote-cn" id="quoteCn"></div>
+                <div class="quote-en" id="quoteEn"></div>
+            </div>
+            <div class="grid">
+                <div class="card card-study" onclick="showPage('studyPage')">
+                    <div class="card-icon">📚</div>
+                    <div class="card-label">Study</div>
+                </div>
+                <div class="card card-video" onclick="showPage('videoPage')">
+                    <div class="card-icon">🎬</div>
+                    <div class="card-label">Video</div>
+                </div>
+                <div class="card card-english" onclick="showPage('englishPage')">
+                    <div class="card-icon">🇬🇧</div>
+                    <div class="card-label">English</div>
+                </div>
+                <div class="card card-body" onclick="showPage('bodyPage')">
+                    <div class="card-icon">⚖️</div>
+                    <div class="card-label">Body</div>
+                </div>
+            </div>
+            <div class="dog-tip"><span>🐶</span>小狗：今天也要加油哦~</div>
+        </div>
+
+        <!-- Study 页面 -->
+        <div id="studyPage" class="page">
+            <button class="back-btn" onclick="showPage('homePage')">← 返回</button>
+            <div class="page-title">📚 Study</div>
+            <div class="page-date" id="studyDate"></div>
+            <div id="studyContent"></div>
+        </div>
+
+        <!-- Video 页面 -->
+        <div id="videoPage" class="page">
+            <button class="back-btn" onclick="showPage('homePage')">← 返回</button>
+            <div class="page-title">🎬 Video</div>
+            <div class="page-date" id="videoDate"></div>
+            <div id="videoContent"></div>
+        </div>
+
+        <!-- English 页面 -->
+        <div id="englishPage" class="page">
+            <button class="back-btn" onclick="showPage('homePage')">← 返回</button>
+            <div class="page-title">🇬🇧 English</div>
+            <div class="page-date" id="englishDate"></div>
+            <div id="englishContent"></div>
+        </div>
+
+        <!-- Body 页面 -->
+        <div id="bodyPage" class="page">
+            <button class="back-btn" onclick="showPage('homePage')">← 返回</button>
+            <div class="page-title">⚖️ Body</div>
+            <div class="page-date" id="bodyDate"></div>
+            <div id="bodyContent"></div>
+        </div>
+    </div>
+
+    <script>
+        // 页面切换
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        // 日期时间
+        function updateDateTime() {
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' });
+            document.getElementById('homeDate').textContent = dateStr;
+            document.getElementById('studyDate').textContent = dateStr;
+            document.getElementById('videoDate').textContent = dateStr;
+            document.getElementById('englishDate').textContent = dateStr;
+            document.getElementById('bodyDate').textContent = dateStr;
+        }
+
+        // 问候语
+        function updateGreeting() {
+            const hour = new Date().getHours();
+            let msg = '';
+            if (hour >= 5 && hour < 11) msg = '早上好，Sylvia 🌅';
+            else if (hour >= 11 && hour < 14) msg = '中午好，Sylvia ☀️';
+            else if (hour >= 14 && hour < 18) msg = '下午好，Sylvia 🌤';
+            else if (hour >= 18 && hour < 23) msg = '晚上好，Sylvia 🌙';
+            else msg = '夜深了，Sylvia 💤';
+            document.getElementById('greeting').textContent = msg;
+        }
+
+        // 加载数据
+        async function loadData() {
+            try {
+                const response = await fetch('data.json');
+                const data = await response.json();
+                document.getElementById('quoteCn').textContent = data.quote_cn;
+                document.getElementById('quoteEn').textContent = data.quote_en;
+                document.getElementById('studyContent').innerHTML = data.study_html;
+                document.getElementById('videoContent').innerHTML = data.video_html;
+                document.getElementById('englishContent').innerHTML = data.english_html;
+                document.getElementById('bodyContent').innerHTML = data.body_html;
+            } catch(e) {
+                console.error('加载数据失败', e);
+            }
+        }
+
+        updateDateTime();
+        updateGreeting();
+        loadData();
+        setInterval(updateDateTime, 60000);
+    </script>
+</body>
+</html>
