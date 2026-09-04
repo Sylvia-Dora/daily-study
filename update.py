@@ -56,7 +56,8 @@ def generate_all_content(day_number):
   "quote_en": "对应的英文翻译",
   "politics_hotspot": "考研政治热点（50字内）",
   "news_hotspot": "新闻热点（50字内）",
-  "editing_task": "剪辑学习任务（30天计划第{day_number}天）：PR+剪映双软件学习，具体任务含操作步骤和练习作业，80字内，难度逐步递进，新手友好",
+  "editing_task_pr": "PR学习任务（30天计划第{day_number}天，具体操作+练习作业，50字内）",
+"editing_task_jianying": "剪映学习任务（30天计划第{day_number}天，具体操作+练习作业，50字内）",
   "memory_essay": "30天趣味记忆第{day_number}篇（英文原文+中文翻译+重点词汇列表，英文约80词，使用红宝书考研词汇）",
   "self_test": "每日自测（3个中译英+3个英译中+2个句子填空，基于当天小作文，用纯文本格式）"
 }}
@@ -105,10 +106,17 @@ def build_html(data, day_number, today_str):
     """
 
     # Video 页面
+      editing_pr = html_escape(data.get('editing_task_pr', ''))
+    editing_jianying = html_escape(data.get('editing_task_jianying', ''))
+
     video_html = f"""
-  <div class="content-card">
-        <div class="section-title">🎬 今日剪辑任务（第{day_number}天）</div>
-        <div class="content-text">{editing}</div>
+    <div class="content-card">
+        <div class="section-title">🎬 PR 今日任务（第{day_number}天）</div>
+        <div class="content-text">{editing_pr}</div>
+    </div>
+    <div class="content-card">
+        <div class="section-title">📱 剪映 今日任务（第{day_number}天）</div>
+        <div class="content-text">{editing_jianying}</div>
     </div>
     <div class="content-card">
         <div class="section-title">📌 30天剪辑学习计划</div>
@@ -159,7 +167,8 @@ def main():
             "quote_en": quote["en"],
             "politics_hotspot": "今日热点暂未更新，请稍后再试",
             "news_hotspot": "今日新闻暂未更新，请稍后再试",
-            "editing_task": "今日剪辑任务暂未更新，请稍后再试",
+          "editing_task_pr": "今日PR任务暂未更新，请稍后再试",
+"editing_task_jianying": "今日剪映任务暂未更新，请稍后再试",
             "memory_essay": f"30天趣味记忆第{day_number}篇暂未更新，请稍后再试",
             "self_test": "今日自测暂未更新，请稍后再试"
         }
