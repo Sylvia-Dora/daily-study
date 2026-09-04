@@ -9,6 +9,7 @@ DEEPSEEK_API_KEY = os.environ['DEEPSEEK_API_KEY']
 # 开始日期：2026年9月3日 = 第1天
 START_DATE = datetime.date(2026, 9, 3)
 
+# 备用金句库
 QUOTES_BACKUP = [
     {"cn": "人生就像一盒巧克力，你永远不知道下一颗是什么味道。", "en": "Life is like a box of chocolates. You never know what you're gonna get."},
     {"cn": "慢慢来，比较快。", "en": "Slow is smooth, smooth is fast."},
@@ -43,6 +44,7 @@ QUOTES_BACKUP = [
 ]
 
 def generate_all_content(day_number):
+    """调用 DeepSeek 生成当天所有内容"""
     url = "https://api.deepseek.com/chat/completions"
     headers = {
         "Authorization": f"Bearer {DEEPSEEK_API_KEY}",
@@ -75,51 +77,62 @@ def generate_all_content(day_number):
     return json.loads(content)
 
 def html_escape(text):
-    if isinstance(text, dict) or isinstance(text, list):
+    """转义 HTML 特殊字符，支持 dict/list"""
+    if isinstance(text, (dict, list)):
         text = json.dumps(text, ensure_ascii=False)
     elif not isinstance(text, str):
         text = str(text)
     return text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;').replace("'", '&#39;')
 
 def build_html(data, day_number, today_str):
+    """构建各页面的 HTML 内容"""
     politics = html_escape(data.get('politics_hotspot', ''))
     news = html_escape(data.get('news_hotspot', ''))
     editing = html_escape(data.get('editing_task', ''))
     essay = html_escape(data.get('memory_essay', ''))
     self_test = html_escape(data.get('self_test', ''))
 
+    # Study 页面
     study_html = f"""
     <div class="content-card">
         <div class="section-title">🔥 考研政治热点</div>
-        <div>{politics}</div>
+        <div class="content-text">{politics}</div>
     </div>
     <div class="content-card">
         <div class="section-title">📰 新闻热点</div>
-        <div>{news}</div>
+        <div class="content-text">{news}</div>
     </div>
     """
 
+    # Video 页面
     video_html = f"""
     <div class="content-card">
         <div class="section-title">🎬 今日剪辑任务</div>
-        <div>{editing}</div>
+        <div class="content-text">{editing}</div>
     </div>
     """
 
+    # English 页面（包含所有英语任务）
     english_html = f"""
     <div class="content-card">
+        <div class="section-title">📌 今日英语任务</div>
+        <div class="content-text">
+✅ 四级英语：List {day_number}<br>
+✅ 考研单词：新60 + 旧100<br>
+✅ 多邻国：1个小单元打卡
+        </div>
+    </div>
+    <div class="content-card">
         <div class="section-title">📖 30天趣味记忆·第{day_number}篇</div>
-        <div style="white-space:pre-wrap;">{essay}</div>
+        <div class="content-text">{essay}</div>
     </div>
     <div class="content-card">
         <div class="section-title">✅ 每日自测</div>
-        <div style="white-space:pre-wrap;">{self_test}</div>
+        <div class="content-text">{self_test}</div>
     </div>
     """
 
-    body_html = ""  # 前端直接处理，这里留空
-
-    return study_html, video_html, english_html, body_html
+    return study_html, video_html, english_html, ""
 
 def main():
     today = datetime.date.today()
@@ -128,6 +141,7 @@ def main():
         day_number = 1
     today_str = today.strftime("%Y-%m-%d")
 
+    # 尝试调用 DeepSeek，失败则使用备用内容
     try:
         data = generate_all_content(day_number)
     except Exception as e:
@@ -145,7 +159,7 @@ def main():
 
     study_html, video_html, english_html, body_html = build_html(data, day_number, today_str)
 
-    # 读取现有的 data.json 历史
+    # 读取已有的 data.json（如果存在）
     history = {}
     if os.path.exists('data.json'):
         try:
@@ -153,8 +167,8 @@ def main():
                 old = json.load(f)
                 if 'history' in old:
                     history = old['history']
-        except:
-            history = {}
+        except Exception as e:
+            print(f"读取旧 data.json 失败: {e}")
 
     # 更新今天的数据
     history[today_str] = {
@@ -163,9 +177,10 @@ def main():
         "study_html": study_html,
         "video_html": video_html,
         "english_html": english_html,
-        "body_html": body_html
+        "body_html": body_html  # 留空，前端不用
     }
 
+    # 写入 data.json
     output = {
         "history": history,
         "latest": today_str
