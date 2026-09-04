@@ -9,7 +9,6 @@ DEEPSEEK_API_KEY = os.environ['DEEPSEEK_API_KEY']
 # 开始日期：2026年9月3日 = 第1天
 START_DATE = datetime.date(2026, 9, 3)
 
-# 备用金句库
 QUOTES_BACKUP = [
     {"cn": "人生就像一盒巧克力，你永远不知道下一颗是什么味道。", "en": "Life is like a box of chocolates. You never know what you're gonna get."},
     {"cn": "慢慢来，比较快。", "en": "Slow is smooth, smooth is fast."},
@@ -44,7 +43,6 @@ QUOTES_BACKUP = [
 ]
 
 def generate_all_content(day_number):
-    """调用 DeepSeek 生成当天所有内容"""
     url = "https://api.deepseek.com/chat/completions"
     headers = {
         "Authorization": f"Bearer {DEEPSEEK_API_KEY}",
@@ -57,7 +55,7 @@ def generate_all_content(day_number):
   "politics_hotspot": "考研政治热点（50字内）",
   "news_hotspot": "新闻热点（50字内）",
   "editing_task_pr": "PR学习任务（30天计划第{day_number}天，具体操作+练习作业，50字内）",
-"editing_task_jianying": "剪映学习任务（30天计划第{day_number}天，具体操作+练习作业，50字内）",
+  "editing_task_jianying": "剪映学习任务（30天计划第{day_number}天，具体操作+练习作业，50字内）",
   "memory_essay": "30天趣味记忆第{day_number}篇（英文原文+中文翻译+重点词汇列表，英文约80词，使用红宝书考研词汇）",
   "self_test": "每日自测（3个中译英+3个英译中+2个句子填空，基于当天小作文，用纯文本格式）"
 }}
@@ -78,7 +76,6 @@ def generate_all_content(day_number):
     return json.loads(content)
 
 def html_escape(text):
-    """转义 HTML 特殊字符，支持 dict/list"""
     if isinstance(text, (dict, list)):
         text = json.dumps(text, ensure_ascii=False)
     elif not isinstance(text, str):
@@ -86,14 +83,13 @@ def html_escape(text):
     return text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;').replace("'", '&#39;')
 
 def build_html(data, day_number, today_str):
-    """构建各页面的 HTML 内容"""
     politics = html_escape(data.get('politics_hotspot', ''))
     news = html_escape(data.get('news_hotspot', ''))
-    editing = html_escape(data.get('editing_task', ''))
+    editing_pr = html_escape(data.get('editing_task_pr', ''))
+    editing_jianying = html_escape(data.get('editing_task_jianying', ''))
     essay = html_escape(data.get('memory_essay', ''))
     self_test = html_escape(data.get('self_test', ''))
 
-    # Study 页面
     study_html = f"""
     <div class="content-card">
         <div class="section-title">🔥 考研政治热点</div>
@@ -104,10 +100,6 @@ def build_html(data, day_number, today_str):
         <div class="content-text">{news}</div>
     </div>
     """
-
-    # Video 页面
-      editing_pr = html_escape(data.get('editing_task_pr', ''))
-    editing_jianying = html_escape(data.get('editing_task_jianying', ''))
 
     video_html = f"""
     <div class="content-card">
@@ -127,7 +119,7 @@ def build_html(data, day_number, today_str):
         </div>
     </div>
     """
-    # English 页面（包含所有英语任务）
+
     english_html = f"""
     <div class="content-card">
         <div class="section-title">📌 今日英语任务</div>
@@ -156,7 +148,6 @@ def main():
         day_number = 1
     today_str = today.strftime("%Y-%m-%d")
 
-    # 尝试调用 DeepSeek，失败则使用备用内容
     try:
         data = generate_all_content(day_number)
     except Exception as e:
@@ -167,15 +158,14 @@ def main():
             "quote_en": quote["en"],
             "politics_hotspot": "今日热点暂未更新，请稍后再试",
             "news_hotspot": "今日新闻暂未更新，请稍后再试",
-          "editing_task_pr": "今日PR任务暂未更新，请稍后再试",
-"editing_task_jianying": "今日剪映任务暂未更新，请稍后再试",
+            "editing_task_pr": "今日PR任务暂未更新，请稍后再试",
+            "editing_task_jianying": "今日剪映任务暂未更新，请稍后再试",
             "memory_essay": f"30天趣味记忆第{day_number}篇暂未更新，请稍后再试",
             "self_test": "今日自测暂未更新，请稍后再试"
         }
 
     study_html, video_html, english_html, body_html = build_html(data, day_number, today_str)
 
-    # 读取已有的 data.json（如果存在）
     history = {}
     if os.path.exists('data.json'):
         try:
@@ -186,17 +176,15 @@ def main():
         except Exception as e:
             print(f"读取旧 data.json 失败: {e}")
 
-    # 更新今天的数据
     history[today_str] = {
         "quote_cn": data.get("quote_cn", ""),
         "quote_en": data.get("quote_en", ""),
         "study_html": study_html,
         "video_html": video_html,
         "english_html": english_html,
-        "body_html": body_html  # 留空，前端不用
+        "body_html": body_html
     }
 
-    # 写入 data.json
     output = {
         "history": history,
         "latest": today_str
