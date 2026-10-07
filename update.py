@@ -6,9 +6,44 @@ import random
 
 DEEPSEEK_API_KEY = os.environ['DEEPSEEK_API_KEY']
 
-# 开始日期：2026年9月3日 = 第1天
-START_DATE = datetime.date(2026, 9, 3)
+# ========== 开始日期：2026年10月8日 = 第1天 ==========
+START_DATE = datetime.date(2026, 10, 8)
 
+# ========== 30天剪辑学习大纲（PR + 剪映） ==========
+EDITING_PLAN = {
+    1:  {"pr": "认识PR界面、新建项目、导入素材", "jianying": "认识剪映界面、导入素材"},
+    2:  {"pr": "时间线操作、剪辑片段", "jianying": "分割、删除、拖动片段"},
+    3:  {"pr": "导出视频、设置参数", "jianying": "导出视频、选择分辨率"},
+    4:  {"pr": "添加背景音乐、调整音量", "jianying": "添加音乐、音频淡入淡出"},
+    5:  {"pr": "添加字幕、调整样式", "jianying": "自动识别字幕、改字体"},
+    6:  {"pr": "转场效果、简单过渡", "jianying": "转场效果、热门转场"},
+    7:  {"pr": "复习+做一条15秒小视频", "jianying": "复习+做一条15秒小视频"},
+    8:  {"pr": "基础调色：亮度、对比度、饱和度", "jianying": "滤镜、调节参数"},
+    9:  {"pr": "色温、色调、HSL", "jianying": "色彩调节、HSL"},
+    10: {"pr": "变速：慢动作、快动作", "jianying": "变速、曲线变速"},
+    11: {"pr": "关键帧基础：位置、缩放", "jianying": "关键帧：缩放、移动"},
+    12: {"pr": "关键帧进阶：透明度、旋转", "jianying": "关键帧进阶：旋转、不透明度"},
+    13: {"pr": "蒙版基础：线性、圆形", "jianying": "蒙版：线性、圆形"},
+    14: {"pr": "复习+做一条30秒卡点视频", "jianying": "复习+做一条30秒卡点视频"},
+    15: {"pr": "绿幕抠像、超级键", "jianying": "智能抠像、色度抠图"},
+    16: {"pr": "画中画、多轨道", "jianying": "画中画、多图层"},
+    17: {"pr": "文字动画、字幕特效", "jianying": "文字动画、花字"},
+    18: {"pr": "音效添加、音频过渡", "jianying": "音效、变声"},
+    19: {"pr": "稳定画面、去抖", "jianying": "防抖、画面稳定"},
+    20: {"pr": "速度斜坡、时间重映射", "jianying": "曲线变速进阶"},
+    21: {"pr": "复习+做一条带特效的短视频", "jianying": "复习+做一条带特效的短视频"},
+    22: {"pr": "分镜脚本、素材整理", "jianying": "分镜脚本、素材整理"},
+    23: {"pr": "剪辑节奏、叙事结构", "jianying": "剪辑节奏、卡点"},
+    24: {"pr": "调色风格化、LUT", "jianying": "滤镜风格化"},
+    25: {"pr": "音频混合、降噪", "jianying": "音频降噪、混音"},
+    26: {"pr": "字幕排版、标题设计", "jianying": "字幕排版、封面"},
+    27: {"pr": "导出设置、多平台适配", "jianying": "导出、多平台适配"},
+    28: {"pr": "做一条1分钟完整视频（上）", "jianying": "做一条1分钟完整视频（上）"},
+    29: {"pr": "做一条1分钟完整视频（下）", "jianying": "做一条1分钟完整视频（下）"},
+    30: {"pr": "复盘+发布作品", "jianying": "复盘+发布作品"},
+}
+
+# ========== 备用金句库（AI不可用时使用） ==========
 QUOTES_BACKUP = [
     {"cn": "人生就像一盒巧克力，你永远不知道下一颗是什么味道。", "en": "Life is like a box of chocolates. You never know what you're gonna get."},
     {"cn": "慢慢来，比较快。", "en": "Slow is smooth, smooth is fast."},
@@ -30,19 +65,12 @@ QUOTES_BACKUP = [
     {"cn": "每一个优秀的人都有一段沉默的时光。", "en": "Every excellent person has a period of silence."},
     {"cn": "心里有光，脚下有路。", "en": "Light in heart, road under feet."},
     {"cn": "不要被明天的烦恼偷走今天的快乐。", "en": "Don't let tomorrow's worries steal today's joy."},
-    {"cn": "做你喜欢的事，并把它做好。", "en": "Do what you love, and do it well."},
-    {"cn": "一切都会好的，如果不是，那还没到最后。", "en": "Everything will be okay. If not, it's not the end."},
-    {"cn": "生活很苦，但你很甜。", "en": "Life is bitter, but you are sweet."},
-    {"cn": "少想，多做。", "en": "Think less, do more."},
-    {"cn": "坚持就是胜利。", "en": "Perseverance is victory."},
-    {"cn": "今天也是闪闪发光的一天。", "en": "Today is also a shining day."},
-    {"cn": "与其羡慕别人，不如成为自己。", "en": "Instead of envying others, become yourself."},
-    {"cn": "未来可期。", "en": "The future is promising."},
-    {"cn": "别让任何人偷走你的梦想。", "en": "Don't let anyone steal your dreams."},
-    {"cn": "把日子过成诗。", "en": "Live your life like a poem."}
 ]
 
 def generate_all_content(day_number):
+    """调用 DeepSeek 生成当天所有内容"""
+    plan = EDITING_PLAN.get(day_number, {"pr": "复习之前内容", "jianying": "复习之前内容"})
+
     url = "https://api.deepseek.com/chat/completions"
     headers = {
         "Authorization": f"Bearer {DEEPSEEK_API_KEY}",
@@ -54,12 +82,12 @@ def generate_all_content(day_number):
   "quote_en": "对应的英文翻译",
   "politics_hotspot": "考研政治热点（50字内）",
   "news_hotspot": "新闻热点（50字内）",
-  "editing_task_pr": "PR学习任务（30天计划第{day_number}天，具体操作+练习作业，50字内）",
-  "editing_task_jianying": "剪映学习任务（30天计划第{day_number}天，具体操作+练习作业，50字内）",
+  "editing_task_pr": "围绕'{plan['pr']}'这个PR任务，给出具体操作步骤和练习作业，50字内",
+  "editing_task_jianying": "围绕'{plan['jianying']}'这个剪映任务，给出具体操作步骤和练习作业，50字内",
   "memory_essay": "30天趣味记忆第{day_number}篇（英文原文+中文翻译+重点词汇列表，英文约80词，使用红宝书考研词汇）",
   "self_test": "每日自测（3个中译英+3个英译中+2个句子填空，基于当天小作文，用纯文本格式）"
 }}
-注意：今天是{datetime.date.today().strftime('%Y年%m月%d日')}，考研政治热点请基于当前时政。英文小作文必须明确标注“第{day_number}篇”。self_test 必须返回字符串，不要用嵌套对象。返回纯JSON，不要有其他文字。"""
+注意：今天是{datetime.date.today().strftime('%Y年%m月%d日')}，考研政治热点请基于当前时政。英文小作文必须明确标注"第{day_number}篇"。self_test 必须返回字符串，不要用嵌套对象。返回纯JSON，不要有其他文字。"""
 
     data = {
         "model": "deepseek-chat",
@@ -76,6 +104,7 @@ def generate_all_content(day_number):
     return json.loads(content)
 
 def html_escape(text):
+    """转义 HTML 特殊字符，支持 dict/list"""
     if isinstance(text, (dict, list)):
         text = json.dumps(text, ensure_ascii=False)
     elif not isinstance(text, str):
@@ -83,6 +112,7 @@ def html_escape(text):
     return text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;').replace("'", '&#39;')
 
 def build_html(data, day_number, today_str):
+    """构建各页面的 HTML 内容"""
     politics = html_escape(data.get('politics_hotspot', ''))
     news = html_escape(data.get('news_hotspot', ''))
     editing_pr = html_escape(data.get('editing_task_pr', ''))
@@ -90,6 +120,11 @@ def build_html(data, day_number, today_str):
     essay = html_escape(data.get('memory_essay', ''))
     self_test = html_escape(data.get('self_test', ''))
 
+    plan = EDITING_PLAN.get(day_number, {"pr": "复习", "jianying": "复习"})
+    pr_topic = plan['pr']
+    jy_topic = plan['jianying']
+
+    # Study 页面
     study_html = f"""
     <div class="content-card">
         <div class="section-title">🔥 考研政治热点</div>
@@ -101,25 +136,19 @@ def build_html(data, day_number, today_str):
     </div>
     """
 
+    # Video 页面（PR + 剪映）
     video_html = f"""
     <div class="content-card">
-        <div class="section-title">🎬 PR 今日任务（第{day_number}天）</div>
+        <div class="section-title">🎬 PR 第{day_number}天：{pr_topic}</div>
         <div class="content-text">{editing_pr}</div>
     </div>
     <div class="content-card">
-        <div class="section-title">📱 剪映 今日任务（第{day_number}天）</div>
+        <div class="section-title">📱 剪映 第{day_number}天：{jy_topic}</div>
         <div class="content-text">{editing_jianying}</div>
-    </div>
-    <div class="content-card">
-        <div class="section-title">📌 30天剪辑学习计划</div>
-        <div class="content-text">
-✅ PR：剪辑、调色、转场、字幕、导出全流程<br>
-✅ 剪映：手机端快速剪辑、热门转场、特效、卡点<br>
-✅ 每天一个知识点，30天系统学完
-        </div>
     </div>
     """
 
+    # English 页面（四级 + 考研 + 多邻国 + 小作文 + 自测）
     english_html = f"""
     <div class="content-card">
         <div class="section-title">📌 今日英语任务</div>
@@ -146,26 +175,31 @@ def main():
     day_number = (today - START_DATE).days + 1
     if day_number < 1:
         day_number = 1
+    if day_number > 30:
+        day_number = 30
     today_str = today.strftime("%Y-%m-%d")
 
+    # 尝试调用 DeepSeek，失败则使用备用内容
     try:
         data = generate_all_content(day_number)
     except Exception as e:
         print(f"DeepSeek 调用失败: {e}")
         quote = random.choice(QUOTES_BACKUP)
+        plan = EDITING_PLAN.get(day_number, {"pr": "复习", "jianying": "复习"})
         data = {
             "quote_cn": quote["cn"],
             "quote_en": quote["en"],
             "politics_hotspot": "今日热点暂未更新，请稍后再试",
             "news_hotspot": "今日新闻暂未更新，请稍后再试",
-            "editing_task_pr": "今日PR任务暂未更新，请稍后再试",
-            "editing_task_jianying": "今日剪映任务暂未更新，请稍后再试",
+            "editing_task_pr": f"今日任务：{plan['pr']}，请打开PR练习",
+            "editing_task_jianying": f"今日任务：{plan['jianying']}，请打开剪映练习",
             "memory_essay": f"30天趣味记忆第{day_number}篇暂未更新，请稍后再试",
             "self_test": "今日自测暂未更新，请稍后再试"
         }
 
     study_html, video_html, english_html, body_html = build_html(data, day_number, today_str)
 
+    # 读取已有的 data.json（保留历史）
     history = {}
     if os.path.exists('data.json'):
         try:
@@ -176,6 +210,7 @@ def main():
         except Exception as e:
             print(f"读取旧 data.json 失败: {e}")
 
+    # 更新今天的数据
     history[today_str] = {
         "quote_cn": data.get("quote_cn", ""),
         "quote_en": data.get("quote_en", ""),
