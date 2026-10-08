@@ -6,8 +6,8 @@ import random
 
 DEEPSEEK_API_KEY = os.environ['DEEPSEEK_API_KEY']
 
-# ========== 开始日期：2026年10月8日 = 第1天 ==========
-START_DATE = datetime.date(2026, 10, 8)
+# ========== 开始日期：2026年10月9日 = 第1天 ==========
+START_DATE = datetime.date(2026, 10, 9)
 
 # ========== 30天剪辑学习大纲（PR + 剪映） ==========
 EDITING_PLAN = {
@@ -43,7 +43,6 @@ EDITING_PLAN = {
     30: {"pr": "复盘+发布作品", "jianying": "复盘+发布作品"},
 }
 
-# ========== 备用金句库（AI不可用时使用） ==========
 QUOTES_BACKUP = [
     {"cn": "人生就像一盒巧克力，你永远不知道下一颗是什么味道。", "en": "Life is like a box of chocolates. You never know what you're gonna get."},
     {"cn": "慢慢来，比较快。", "en": "Slow is smooth, smooth is fast."},
@@ -67,9 +66,28 @@ QUOTES_BACKUP = [
     {"cn": "不要被明天的烦恼偷走今天的快乐。", "en": "Don't let tomorrow's worries steal today's joy."},
 ]
 
-def generate_all_content(day_number):
-    """调用 DeepSeek 生成当天所有内容"""
+def get_recent_vocab(history, today, days=6):
+    """获取最近几天用过的重点词汇，用于滚动复习"""
+    vocab_pool = []
+    for i in range(1, days + 1):
+        date = today - datetime.timedelta(days=i)
+        date_str = date.strftime("%Y-%m-%d")
+        if date_str in history:
+            vocab_list = history[date_str].get('key_vocab', [])
+            vocab_pool.extend(vocab_list)
+    seen = set()
+    unique = []
+    for w in vocab_pool:
+        w_lower = w.lower()
+        if w_lower not in seen:
+            seen.add(w_lower)
+            unique.append(w)
+    return unique
+
+def generate_all_content(day_number, recent_vocab):
     plan = EDITING_PLAN.get(day_number, {"pr": "复习之前内容", "jianying": "复习之前内容"})
+
+    recent_vocab_str = "、".join(recent_vocab[:40]) if recent_vocab else "（无）"
 
     url = "https://api.deepseek.com/chat/completions"
     headers = {
@@ -84,10 +102,22 @@ def generate_all_content(day_number):
   "news_hotspot": "新闻热点（50字内）",
   "editing_task_pr": "围绕'{plan['pr']}'这个PR任务，给出具体操作步骤和练习作业，50字内",
   "editing_task_jianying": "围绕'{plan['jianying']}'这个剪映任务，给出具体操作步骤和练习作业，50字内",
-  "memory_essay": "30天趣味记忆第{day_number}篇（英文原文+中文翻译+重点词汇列表，英文约80词，使用红宝书考研词汇）",
+  "memory_essay": "30天趣味记忆第{day_number}篇：英文原文约180词 + 中文翻译 + 重点词汇列表（30个），词汇必须来自红宝书考研英语大纲完整词汇库（约5500词），不要只用核心高频词，要涵盖基础词、进阶词、难词",
+  "key_vocab": "今天小作文里用到的所有重点词汇，纯英文单词，用JSON数组格式列出，例如：[\\"abandon\\", \\"persistent\\"]",
   "self_test": "每日自测（3个中译英+3个英译中+2个句子填空，基于当天小作文，用纯文本格式）"
 }}
-注意：今天是{datetime.date.today().strftime('%Y年%m月%d日')}，考研政治热点请基于当前时政。英文小作文必须明确标注"第{day_number}篇"。self_test 必须返回字符串，不要用嵌套对象。返回纯JSON，不要有其他文字。"""
+
+【滚动复习要求】
+昨天及前几天已经学过的词：{recent_vocab_str}
+请从中挑选 5-8 个词，自然融入今天的故事里复现。
+其余 22-25 个词用红宝书5500词库里的新词。
+总共重点词汇控制在 30 个。
+
+【其他要求】
+今天是{datetime.date.today().strftime('%Y年%m月%d日')}，考研政治热点请基于当前时政。
+英文小作文必须明确标注"第{day_number}篇"。
+self_test 必须是字符串，不要用嵌套对象。
+返回纯 JSON，不要有其他文字。"""
 
     data = {
         "model": "deepseek-chat",
@@ -104,7 +134,6 @@ def generate_all_content(day_number):
     return json.loads(content)
 
 def html_escape(text):
-    """转义 HTML 特殊字符，支持 dict/list"""
     if isinstance(text, (dict, list)):
         text = json.dumps(text, ensure_ascii=False)
     elif not isinstance(text, str):
@@ -112,7 +141,6 @@ def html_escape(text):
     return text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;').replace("'", '&#39;')
 
 def build_html(data, day_number, today_str):
-    """构建各页面的 HTML 内容"""
     politics = html_escape(data.get('politics_hotspot', ''))
     news = html_escape(data.get('news_hotspot', ''))
     editing_pr = html_escape(data.get('editing_task_pr', ''))
@@ -124,7 +152,6 @@ def build_html(data, day_number, today_str):
     pr_topic = plan['pr']
     jy_topic = plan['jianying']
 
-    # Study 页面
     study_html = f"""
     <div class="content-card">
         <div class="section-title">🔥 考研政治热点</div>
@@ -136,7 +163,6 @@ def build_html(data, day_number, today_str):
     </div>
     """
 
-    # Video 页面（PR + 剪映）
     video_html = f"""
     <div class="content-card">
         <div class="section-title">🎬 PR 第{day_number}天：{pr_topic}</div>
@@ -148,13 +174,12 @@ def build_html(data, day_number, today_str):
     </div>
     """
 
-    # English 页面（四级 + 考研 + 多邻国 + 小作文 + 自测）
     english_html = f"""
     <div class="content-card">
         <div class="section-title">📌 今日英语任务</div>
         <div class="content-text">
 ✅ 四级英语：List {day_number}<br>
-✅ 考研单词：新60 + 旧100<br>
+✅ 考研单词：新40 + 旧100<br>
 ✅ 多邻国：1个小单元打卡
         </div>
     </div>
@@ -179,9 +204,22 @@ def main():
         day_number = 30
     today_str = today.strftime("%Y-%m-%d")
 
-    # 尝试调用 DeepSeek，失败则使用备用内容
+    # 先读取历史
+    history = {}
+    if os.path.exists('data.json'):
+        try:
+            with open('data.json', 'r', encoding='utf-8') as f:
+                old = json.load(f)
+                if 'history' in old:
+                    history = old['history']
+        except Exception as e:
+            print(f"读取旧 data.json 失败: {e}")
+
+    recent_vocab = get_recent_vocab(history, today, days=6)
+    print(f"最近词汇池大小: {len(recent_vocab)}")
+
     try:
-        data = generate_all_content(day_number)
+        data = generate_all_content(day_number, recent_vocab)
     except Exception as e:
         print(f"DeepSeek 调用失败: {e}")
         quote = random.choice(QUOTES_BACKUP)
@@ -194,30 +232,27 @@ def main():
             "editing_task_pr": f"今日任务：{plan['pr']}，请打开PR练习",
             "editing_task_jianying": f"今日任务：{plan['jianying']}，请打开剪映练习",
             "memory_essay": f"30天趣味记忆第{day_number}篇暂未更新，请稍后再试",
+            "key_vocab": [],
             "self_test": "今日自测暂未更新，请稍后再试"
         }
 
     study_html, video_html, english_html, body_html = build_html(data, day_number, today_str)
 
-    # 读取已有的 data.json（保留历史）
-    history = {}
-    if os.path.exists('data.json'):
+    key_vocab = data.get("key_vocab", [])
+    if isinstance(key_vocab, str):
         try:
-            with open('data.json', 'r', encoding='utf-8') as f:
-                old = json.load(f)
-                if 'history' in old:
-                    history = old['history']
-        except Exception as e:
-            print(f"读取旧 data.json 失败: {e}")
+            key_vocab = json.loads(key_vocab)
+        except:
+            key_vocab = []
 
-    # 更新今天的数据
     history[today_str] = {
         "quote_cn": data.get("quote_cn", ""),
         "quote_en": data.get("quote_en", ""),
         "study_html": study_html,
         "video_html": video_html,
         "english_html": english_html,
-        "body_html": body_html
+        "body_html": body_html,
+        "key_vocab": key_vocab
     }
 
     output = {
@@ -228,7 +263,7 @@ def main():
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ data.json 更新成功！第 {day_number} 天，历史共 {len(history)} 天")
+    print(f"✅ data.json 更新成功！第 {day_number} 天，历史共 {len(history)} 天，今日词汇 {len(key_vocab)} 个")
 
 if __name__ == "__main__":
     main()
