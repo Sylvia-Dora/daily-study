@@ -131,7 +131,47 @@
         "quote",
         "proverb"
       ]
+    },
+    "2026-10-11": {
+      "quote_cn": "真正的自由不是想做什么就做什么，而是不想做什么就可以不做什么。",
+      "quote_en": "True freedom is not about doing whatever you want, but about not doing what you don't want to do.",
+      "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">2026年10月，学习贯彻党的二十届四中全会精神，聚焦“十五五”规划前期研究，推进中国式现代化与高质量发展。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">2026年10月11日，我国多地推进数字人民币试点扩围，覆盖交通、政务、消费等场景，便利民众生活。</div>\n    </div>\n    ",
+      "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 PR 第3天：导出视频、设置参数</div>\n        <div class=\"content-text\">PR导出：文件→导出→媒体，选H.264、1080p、30fps、比特率10Mbps。作业：导出一段30秒视频并检查参数。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📱 剪映 第3天：导出视频、选择分辨率</div>\n        <div class=\"content-text\">剪映导出：点“导出”，选1080p、30fps、较高码率，关闭智能HDR。作业：导出15秒视频并对比720p与1080p大小。</div>\n    </div>\n    ",
+      "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日英语任务</div>\n        <div class=\"content-text\">\n✅ 四级英语：List 3<br>\n✅ 考研单词：新40 + 旧100<br>\n✅ 多邻国：1个小单元打卡\n        </div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📖 30天趣味记忆·第3篇</div>\n        <div class=\"content-text\">第3篇\n\nEnglish:\nOn a dusty morning, Lily felt weary but remained diligent. She had a persistent ambition to pursue justice and liberty through writing. Her draft was fragile at first, and criticism made her feel brittle. Yet she refused to abandon her goal. She tried to compose a coherent essay, emphasize concrete evidence, and not neglect subtle details. She would recite key points aloud, distinguish fact from vague rumor, and integrate various views. A timber vessel on the river seemed to incline her to reflect on momentum. She did not want to deprive anyone of hope or comply with injustice. Clearly, her foundation was growing stronger. Even when others chose to ignore her, she kept moving forward, turning abstract ideals into practical action.\n\n中文：\n在一个尘土飞扬的早晨，莉莉感到疲惫，但仍保持勤勉。她有一个持久的抱负：通过写作追求正义与自由。她的初稿起初很脆弱，批评让她感到易碎。然而她拒绝放弃目标。她试着写出连贯的文章，强调具体证据，不忽视微妙细节。她会大声背诵要点，区分事实与模糊谣言，并整合各种观点。河上的一艘木船似乎使她倾向于反思势头。她不想剥夺任何人的希望，也不愿屈从不公。显然，她的基础正变得更牢固。即使他人选择忽视她，她仍继续前行，把抽象理想变为实际行动。\n\n重点词汇：\ndusty, weary, diligent, persistent, ambition, pursue, justice, liberty, fragile, criticism, brittle, abandon, compose, coherent, emphasize, concrete, neglect, subtle, recite, distinguish, vague, integrate, timber, vessel, incline, momentum, deprive, comply, foundation, ignore</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">✅ 每日自测</div>\n        <div class=\"content-text\">中译英：\n1. 她虽然疲惫，但仍然勤勉。\n2. 我们不能忽视那些微妙的细节。\n3. 他把抽象的理想变成了具体的行动。\n\n英译中：\n1. She had a persistent ambition to pursue justice and liberty.\n2. Criticism made her feel fragile, but she refused to abandon her goal.\n3. A timber vessel on the river seemed to incline her to reflect on momentum.\n\n句子填空：\n1. Clearly, her ______ was growing stronger.\n2. She did not want to ______ anyone of hope or ______ with injustice.</div>\n    </div>\n    ",
+      "body_html": "",
+      "key_vocab": [
+        "dusty",
+        "weary",
+        "diligent",
+        "persistent",
+        "ambition",
+        "pursue",
+        "justice",
+        "liberty",
+        "fragile",
+        "criticism",
+        "brittle",
+        "abandon",
+        "compose",
+        "coherent",
+        "emphasize",
+        "concrete",
+        "neglect",
+        "subtle",
+        "recite",
+        "distinguish",
+        "vague",
+        "integrate",
+        "timber",
+        "vessel",
+        "incline",
+        "momentum",
+        "deprive",
+        "comply",
+        "foundation",
+        "ignore"
+      ]
     }
   },
-  "latest": "2026-10-10"
+  "latest": "2026-10-11"
 }
