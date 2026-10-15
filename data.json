@@ -309,7 +309,16 @@
         "quote",
         "abstract"
       ]
+    },
+    "2026-10-15": {
+      "quote_cn": "成功是日复一日的坚持。",
+      "quote_en": "Success is the sum of small efforts repeated daily.",
+      "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">今日热点暂未更新，请稍后再试</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">今日新闻暂未更新，请稍后再试</div>\n    </div>\n    ",
+      "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 PR 第7天：复习+做一条15秒小视频</div>\n        <div class=\"content-text\">今日任务：复习+做一条15秒小视频，请打开PR练习</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📱 剪映 第7天：复习+做一条15秒小视频</div>\n        <div class=\"content-text\">今日任务：复习+做一条15秒小视频，请打开剪映练习</div>\n    </div>\n    ",
+      "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日英语任务</div>\n        <div class=\"content-text\">\n✅ 四级英语：List 7<br>\n✅ 考研单词：新40 + 旧100<br>\n✅ 多邻国：1个小单元打卡\n        </div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📖 30天趣味记忆·第7篇</div>\n        <div class=\"content-text\">30天趣味记忆第7篇暂未更新，请稍后再试</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">✅ 每日自测</div>\n        <div class=\"content-text\">今日自测暂未更新，请稍后再试</div>\n    </div>\n    ",
+      "body_html": "",
+      "key_vocab": []
     }
   },
-  "latest": "2026-10-14"
+  "latest": "2026-10-15"
 }
