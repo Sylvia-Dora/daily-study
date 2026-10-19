@@ -6,10 +6,10 @@ import random
 
 DEEPSEEK_API_KEY = os.environ['DEEPSEEK_API_KEY']
 
-# ========== 开始日期：2026年10月9日 = 第1天 ==========
-START_DATE = datetime.date(2026, 10, 9)
+# ========== 重新开始：2026年10月20日 = 第1天 ==========
+START_DATE = datetime.date(2026, 10, 20)
 
-# ========== 30天剪辑学习大纲（PR + 剪映） ==========
+# ========== 30天剪辑学习大纲 ==========
 EDITING_PLAN = {
     1:  {"pr": "认识PR界面、新建项目、导入素材", "jianying": "认识剪映界面、导入素材"},
     2:  {"pr": "时间线操作、剪辑片段", "jianying": "分割、删除、拖动片段"},
@@ -54,20 +54,9 @@ QUOTES_BACKUP = [
     {"cn": "成功是日复一日的坚持。", "en": "Success is the sum of small efforts repeated daily."},
     {"cn": "不要等到完美再开始。", "en": "Don't wait for perfect. Start now."},
     {"cn": "你走过的每一步都算数。", "en": "Every step you take counts."},
-    {"cn": "别怕慢，怕的是站。", "en": "Don't fear being slow, fear standing still."},
-    {"cn": "今天的努力是明天的底气。", "en": "Today's effort is tomorrow's confidence."},
-    {"cn": "做自己的太阳，不必借谁的光。", "en": "Be your own sun, no need to borrow light."},
-    {"cn": "先完成，再完美。", "en": "First done, then perfect."},
-    {"cn": "越努力，越幸运。", "en": "The harder you work, the luckier you get."},
-    {"cn": "把焦虑变成行动。", "en": "Turn anxiety into action."},
-    {"cn": "你只管努力，剩下的交给时间。", "en": "Just keep working hard, leave the rest to time."},
-    {"cn": "每一个优秀的人都有一段沉默的时光。", "en": "Every excellent person has a period of silence."},
-    {"cn": "心里有光，脚下有路。", "en": "Light in heart, road under feet."},
-    {"cn": "不要被明天的烦恼偷走今天的快乐。", "en": "Don't let tomorrow's worries steal today's joy."},
 ]
 
 def get_recent_vocab(history, today, days=6):
-    """获取最近几天用过的重点词汇，用于滚动复习"""
     vocab_pool = []
     for i in range(1, days + 1):
         date = today - datetime.timedelta(days=i)
@@ -86,7 +75,6 @@ def get_recent_vocab(history, today, days=6):
 
 def generate_all_content(day_number, recent_vocab):
     plan = EDITING_PLAN.get(day_number, {"pr": "复习之前内容", "jianying": "复习之前内容"})
-
     recent_vocab_str = "、".join(recent_vocab[:40]) if recent_vocab else "（无）"
 
     url = "https://api.deepseek.com/chat/completions"
@@ -102,22 +90,20 @@ def generate_all_content(day_number, recent_vocab):
   "news_hotspot": "新闻热点（50字内）",
   "editing_task_pr": "围绕'{plan['pr']}'这个PR任务，给出具体操作步骤和练习作业，50字内",
   "editing_task_jianying": "围绕'{plan['jianying']}'这个剪映任务，给出具体操作步骤和练习作业，50字内",
-  "memory_essay": "30天趣味记忆第{day_number}篇：英文原文约180词 + 中文翻译 + 重点词汇列表（30个），词汇必须来自红宝书考研英语大纲完整词汇库（约5500词），不要只用核心高频词，要涵盖基础词、进阶词、难词",
+  "memory_essay": "30天趣味记忆第{day_number}篇：英文原文约180词 + 中文翻译 + 重点词汇表（30个，必须带中文意思，格式：单词 - 中文意思）。并在最后加上一段【🌙 今日睡前复习】，列出今天最重要的5个核心词。",
   "key_vocab": "今天小作文里用到的所有重点词汇，纯英文单词，用JSON数组格式列出，例如：[\\"abandon\\", \\"persistent\\"]",
-  "self_test": "每日自测（3个中译英+3个英译中+2个句子填空，基于当天小作文，用纯文本格式）"
+  "self_test": "每日自测：针对今天新学的30个重点词，出10道单词测试（5道中译英，5道英译中）+ 2个句子填空，用纯文本格式。"
 }}
 
 【滚动复习要求】
 昨天及前几天已经学过的词：{recent_vocab_str}
-请从中挑选 5-8 个词，自然融入今天的故事里复现。
-其余 22-25 个词用红宝书5500词库里的新词。
-总共重点词汇控制在 30 个。
+请从中挑选 5-8 个词，自然融入今天的故事里复现。其余词用新词。总共30个。
 
 【其他要求】
 今天是{datetime.date.today().strftime('%Y年%m月%d日')}，考研政治热点请基于当前时政。
 英文小作文必须明确标注"第{day_number}篇"。
-self_test 必须是字符串，不要用嵌套对象。
-返回纯 JSON，不要有其他文字。"""
+self_test 必须是字符串。
+返回纯 JSON。"""
 
     data = {
         "model": "deepseek-chat",
@@ -167,10 +153,16 @@ def build_html(data, day_number, today_str):
     <div class="content-card">
         <div class="section-title">🎬 PR 第{day_number}天：{pr_topic}</div>
         <div class="content-text">{editing_pr}</div>
+        <div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;">
+            💡 学习路径：B站搜索 UP主 <b>doyoudo</b>，在他的 PR 2025 课程里找对应章节。
+        </div>
     </div>
     <div class="content-card">
         <div class="section-title">📱 剪映 第{day_number}天：{jy_topic}</div>
         <div class="content-text">{editing_jianying}</div>
+        <div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;">
+            💡 学习路径：抖音搜索 <b>剪映教学(天齐)</b>，或直接搜关键词“剪映 {jy_topic}”。
+        </div>
     </div>
     """
 
@@ -188,7 +180,7 @@ def build_html(data, day_number, today_str):
         <div class="content-text">{essay}</div>
     </div>
     <div class="content-card">
-        <div class="section-title">✅ 每日自测</div>
+        <div class="section-title">✅ 每日自测与复习</div>
         <div class="content-text">{self_test}</div>
     </div>
     """
@@ -204,7 +196,6 @@ def main():
         day_number = 30
     today_str = today.strftime("%Y-%m-%d")
 
-    # 先读取历史
     history = {}
     if os.path.exists('data.json'):
         try:
@@ -216,7 +207,6 @@ def main():
             print(f"读取旧 data.json 失败: {e}")
 
     recent_vocab = get_recent_vocab(history, today, days=6)
-    print(f"最近词汇池大小: {len(recent_vocab)}")
 
     try:
         data = generate_all_content(day_number, recent_vocab)
