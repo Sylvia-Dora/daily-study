@@ -6,8 +6,8 @@ import random
 
 DEEPSEEK_API_KEY = os.environ['DEEPSEEK_API_KEY']
 
-# ========== 重新开始：2026年10月20日 = 第1天 ==========
-START_DATE = datetime.date(2026, 10, 20)
+# ========== 开始日期：2026年10月22日 = 第1天 ==========
+START_DATE = datetime.date(2026, 10, 22)
 
 # ========== 30天剪辑学习大纲 ==========
 EDITING_PLAN = {
@@ -44,16 +44,11 @@ EDITING_PLAN = {
 }
 
 QUOTES_BACKUP = [
-    {"cn": "人生就像一盒巧克力，你永远不知道下一颗是什么味道。", "en": "Life is like a box of chocolates. You never know what you're gonna get."},
     {"cn": "慢慢来，比较快。", "en": "Slow is smooth, smooth is fast."},
-    {"cn": "今天不想跑，所以才去跑。", "en": "Run when you don't want to run."},
+    {"cn": "不要等到完美再开始。", "en": "Don't wait for perfect. Start now."},
     {"cn": "种一棵树最好的时间是十年前，其次是现在。", "en": "The best time to plant a tree was 10 years ago. The second best time is now."},
     {"cn": "你比昨天的自己更好了。", "en": "You are better than yesterday's you."},
-    {"cn": "所有的伟大都源于一个勇敢的开始。", "en": "All greatness comes from a brave beginning."},
-    {"cn": "把每一天都当成最后一天来过。", "en": "Live each day as if it were your last."},
-    {"cn": "成功是日复一日的坚持。", "en": "Success is the sum of small efforts repeated daily."},
-    {"cn": "不要等到完美再开始。", "en": "Don't wait for perfect. Start now."},
-    {"cn": "你走过的每一步都算数。", "en": "Every step you take counts."},
+    {"cn": "先完成，再完美。", "en": "First done, then perfect."}
 ]
 
 def get_recent_vocab(history, today, days=6):
@@ -90,14 +85,14 @@ def generate_all_content(day_number, recent_vocab):
   "news_hotspot": "新闻热点（50字内）",
   "editing_task_pr": "围绕'{plan['pr']}'这个PR任务，给出具体操作步骤和练习作业，50字内",
   "editing_task_jianying": "围绕'{plan['jianying']}'这个剪映任务，给出具体操作步骤和练习作业，50字内",
-  "memory_essay": "30天趣味记忆第{day_number}篇：英文原文约180词 + 中文翻译 + 重点词汇表（30个，必须带中文意思，格式：单词 - 中文意思）。并在最后加上一段【🌙 今日睡前复习】，列出今天最重要的5个核心词。",
+  "memory_essay": "30天趣味记忆第{day_number}篇：英文原文约100-120词 + 中文翻译 + 重点词汇表（15-20个，必须带中文意思，格式：单词 - 中文意思）。并在最后加一句：💡读一读培养语感即可，重点记词汇意思，不用死背全文。",
   "key_vocab": "今天小作文里用到的所有重点词汇，纯英文单词，用JSON数组格式列出，例如：[\\"abandon\\", \\"persistent\\"]",
-  "self_test": "每日自测：针对今天新学的30个重点词，出10道单词测试（5道中译英，5道英译中）+ 2个句子填空，用纯文本格式。"
+  "self_test": "每日自测：基于今天小作文的语境，出5道单词测试（3道中译英，2道英译中）+ 1个句子填空，用纯文本格式。"
 }}
 
 【滚动复习要求】
 昨天及前几天已经学过的词：{recent_vocab_str}
-请从中挑选 5-8 个词，自然融入今天的故事里复现。其余词用新词。总共30个。
+请从中挑选 3-5 个词，自然融入今天的故事里复现。其余词用考研核心词汇。
 
 【其他要求】
 今天是{datetime.date.today().strftime('%Y年%m月%d日')}，考研政治热点请基于当前时政。
@@ -154,25 +149,27 @@ def build_html(data, day_number, today_str):
         <div class="section-title">🎬 PR 第{day_number}天：{pr_topic}</div>
         <div class="content-text">{editing_pr}</div>
         <div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;">
-            💡 学习路径：B站搜索 UP主 <b>doyoudo</b>，在他的 PR 2025 课程里找对应章节。
+            💡 学习路径：B站搜索 <b>岁岁的剪辑手册</b>，或者在B站直接搜“PR 2025 零基础 一帧一帧教程”跟着练。
         </div>
     </div>
     <div class="content-card">
         <div class="section-title">📱 剪映 第{day_number}天：{jy_topic}</div>
         <div class="content-text">{editing_jianying}</div>
         <div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;">
-            💡 学习路径：抖音搜索 <b>剪映教学(天齐)</b>，或直接搜关键词“剪映 {jy_topic}”。
+            💡 学习路径：B站搜索 <b>岁岁的剪辑手册</b>，或直接搜“剪映 零基础 保姆级教程”。
         </div>
     </div>
     """
 
     english_html = f"""
     <div class="content-card">
-        <div class="section-title">📌 今日英语任务</div>
+        <div class="section-title">📌 今日硬性单词任务</div>
         <div class="content-text">
-✅ 四级英语：List {day_number}<br>
-✅ 考研单词：新40 + 旧100<br>
-✅ 多邻国：1个小单元打卡
+✅ 四级新词：20 个<br>
+✅ 考研新词：80 个<br>
+✅ 旧词复习：按 App 规划完成<br>
+✅ 多邻国：1个小单元打卡<br>
+<span style="color: #888; font-size: 12px;">（每日新词总计 100 个，小作文里的词当作语感辅助，不死磕）</span>
         </div>
     </div>
     <div class="content-card">
