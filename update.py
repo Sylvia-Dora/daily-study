@@ -6,49 +6,47 @@ import random
 
 DEEPSEEK_API_KEY = os.environ['DEEPSEEK_API_KEY']
 
-# ========== 开始日期：2026年10月22日 = 第1天 ==========
-START_DATE = datetime.date(2026, 10, 22)
+# ========== 全新起点：2026年10月27日 = 第1天 ==========
+START_DATE = datetime.date(2026, 10, 27)
 
-# ========== 30天剪辑学习大纲 ==========
+# ========== 30天剪辑基础双修大纲 ==========
 EDITING_PLAN = {
-    1:  {"pr": "认识PR界面、新建项目、导入素材", "jianying": "认识剪映界面、导入素材"},
-    2:  {"pr": "时间线操作、剪辑片段", "jianying": "分割、删除、拖动片段"},
-    3:  {"pr": "导出视频、设置参数", "jianying": "导出视频、选择分辨率"},
-    4:  {"pr": "添加背景音乐、调整音量", "jianying": "添加音乐、音频淡入淡出"},
-    5:  {"pr": "添加字幕、调整样式", "jianying": "自动识别字幕、改字体"},
-    6:  {"pr": "转场效果、简单过渡", "jianying": "转场效果、热门转场"},
-    7:  {"pr": "复习+做一条15秒小视频", "jianying": "复习+做一条15秒小视频"},
-    8:  {"pr": "基础调色：亮度、对比度、饱和度", "jianying": "滤镜、调节参数"},
-    9:  {"pr": "色温、色调、HSL", "jianying": "色彩调节、HSL"},
-    10: {"pr": "变速：慢动作、快动作", "jianying": "变速、曲线变速"},
-    11: {"pr": "关键帧基础：位置、缩放", "jianying": "关键帧：缩放、移动"},
-    12: {"pr": "关键帧进阶：透明度、旋转", "jianying": "关键帧进阶：旋转、不透明度"},
-    13: {"pr": "蒙版基础：线性、圆形", "jianying": "蒙版：线性、圆形"},
-    14: {"pr": "复习+做一条30秒卡点视频", "jianying": "复习+做一条30秒卡点视频"},
-    15: {"pr": "绿幕抠像、超级键", "jianying": "智能抠像、色度抠图"},
-    16: {"pr": "画中画、多轨道", "jianying": "画中画、多图层"},
-    17: {"pr": "文字动画、字幕特效", "jianying": "文字动画、花字"},
-    18: {"pr": "音效添加、音频过渡", "jianying": "音效、变声"},
-    19: {"pr": "稳定画面、去抖", "jianying": "防抖、画面稳定"},
-    20: {"pr": "速度斜坡、时间重映射", "jianying": "曲线变速进阶"},
-    21: {"pr": "复习+做一条带特效的短视频", "jianying": "复习+做一条带特效的短视频"},
-    22: {"pr": "分镜脚本、素材整理", "jianying": "分镜脚本、素材整理"},
-    23: {"pr": "剪辑节奏、叙事结构", "jianying": "剪辑节奏、卡点"},
-    24: {"pr": "调色风格化、LUT", "jianying": "滤镜风格化"},
-    25: {"pr": "音频混合、降噪", "jianying": "音频降噪、混音"},
-    26: {"pr": "字幕排版、标题设计", "jianying": "字幕排版、封面"},
-    27: {"pr": "导出设置、多平台适配", "jianying": "导出、多平台适配"},
-    28: {"pr": "做一条1分钟完整视频（上）", "jianying": "做一条1分钟完整视频（上）"},
-    29: {"pr": "做一条1分钟完整视频（下）", "jianying": "做一条1分钟完整视频（下）"},
-    30: {"pr": "复盘+发布作品", "jianying": "复盘+发布作品"},
+    1:  {"task": "PR：看岁岁认识界面/建项目；剪映：看陆一舟认识界面/导入素材"},
+    2:  {"task": "PR：学剃刀(C)和选择(V)；剪映：练分割、删除"},
+    3:  {"task": "PR：学时间轴缩放/波纹删除；剪映：练音频分离/裁剪"},
+    4:  {"task": "PR：学基础字幕添加；剪映：实操一键识别字幕"},
+    5:  {"task": "PR：学基础导出参数；剪映：学高清导出"},
+    6:  {"task": "【实操日】随便拍5段视频，用PR和剪映各剪一个15秒流水账"},
+    7:  {"task": "【复盘日】不看教程，盲操切、拖、导出，记下不熟的快捷键"},
+    8:  {"task": "PR：看岁岁学关键帧；剪映：看陆一舟学关键帧"},
+    9:  {"task": "PR：学线性蒙版；剪映：学蒙版遮罩"},
+    10: {"task": "PR：学变速(时间重映射)；剪映：学常规/曲线变速"},
+    11: {"task": "PR：学加音效/背景音乐；剪映：学音乐自动踩点"},
+    12: {"task": "PR：学画中画/多轨道；剪映：学画中画/图层顺序"},
+    13: {"task": "【实操日】用关键帧+变速，剪一个15秒卡点视频"},
+    14: {"task": "【复盘日】找3个短视频，看前10秒怎么切的，模仿一下"},
+    15: {"task": "PR：看岁岁学文字排版；剪映：学花字和文字动画"},
+    16: {"task": "PR：学画面防抖；剪映：学基础防抖/画面裁剪"},
+    17: {"task": "PR专项：看【我是阿B】学基础调色(Lumetri面板)"},
+    18: {"task": "PR专项：看【我是阿B】学HSL/色温，把素材调通透"},
+    19: {"task": "剪映实战：套用滤镜，调一个日常Vlog色调"},
+    20: {"task": "【实操日】拿废片，用PR按阿B的方法调出质感"},
+    21: {"task": "【复盘日】总结调色参数，对比大佬的差在哪"},
+    22: {"task": "PR专项：看【百万剪辑狮】讲视频节奏与镜头组接"},
+    23: {"task": "PR专项：看【百万剪辑狮】讲音乐卡点逻辑"},
+    24: {"task": "PR实战：找5段素材+音乐，按剪辑狮思路做粗剪"},
+    25: {"task": "PR实战：精剪，用学过的调色和字幕包装"},
+    26: {"task": "剪映实战：同主题，用手机剪映快速剪竖屏版本"},
+    27: {"task": "【实操日】独立完成1分钟Vlog，加音效/字幕/调色"},
+    28: {"task": "【修改日】导出看三遍，找毛病，回软件修改"},
+    29: {"task": "【复习日】把前三周卡壳的地方，回岁岁/陆一舟课里重看"},
+    30: {"task": "【产出日】导出最终成片，发到社交平台，基础通关！"}
 }
 
 QUOTES_BACKUP = [
     {"cn": "慢慢来，比较快。", "en": "Slow is smooth, smooth is fast."},
     {"cn": "不要等到完美再开始。", "en": "Don't wait for perfect. Start now."},
-    {"cn": "种一棵树最好的时间是十年前，其次是现在。", "en": "The best time to plant a tree was 10 years ago. The second best time is now."},
-    {"cn": "你比昨天的自己更好了。", "en": "You are better than yesterday's you."},
-    {"cn": "先完成，再完美。", "en": "First done, then perfect."}
+    {"cn": "种一棵树最好的时间是十年前，其次是现在。", "en": "The best time to plant a tree was 10 years ago. The second best time is now."}
 ]
 
 def get_recent_vocab(history, today, days=6):
@@ -69,7 +67,8 @@ def get_recent_vocab(history, today, days=6):
     return unique
 
 def generate_all_content(day_number, recent_vocab):
-    plan = EDITING_PLAN.get(day_number, {"pr": "复习之前内容", "jianying": "复习之前内容"})
+    plan = EDITING_PLAN.get(day_number, {"task": "自由复习或练习"})
+    today_task = plan["task"]
     recent_vocab_str = "、".join(recent_vocab[:40]) if recent_vocab else "（无）"
 
     url = "https://api.deepseek.com/chat/completions"
@@ -77,33 +76,36 @@ def generate_all_content(day_number, recent_vocab):
         "Authorization": f"Bearer {DEEPSEEK_API_KEY}",
         "Content-Type": "application/json"
     }
+    
     prompt = f"""请生成今日学习内容，返回 JSON 格式，包含以下字段：
 {{
+  "dog_quote": "一句小狗对主人的可爱、幽默或鼓励的碎碎念，15字左右，例如：今天剪辑课也要乖乖看汪！",
   "quote_cn": "一句有哲理或有趣的中文名言/金句（15-30字）",
   "quote_en": "对应的英文翻译",
   "politics_hotspot": "考研政治热点（50字内）",
   "news_hotspot": "新闻热点（50字内）",
-  "editing_task_pr": "围绕'{plan['pr']}'这个PR任务，给出具体操作步骤和练习作业，50字内",
-  "editing_task_jianying": "围绕'{plan['jianying']}'这个剪映任务，给出具体操作步骤和练习作业，50字内",
+  "editing_task": "今天的核心任务是：{today_task}。请用鼓励的语气，写一句简短的今日剪辑行动建议（30字内）",
   "memory_essay": "30天趣味记忆第{day_number}篇：英文原文约100-120词 + 中文翻译 + 重点词汇表（15-20个，必须带中文意思，格式：单词 - 中文意思）。并在最后加一句：💡读一读培养语感即可，重点记词汇意思，不用死背全文。",
   "key_vocab": "今天小作文里用到的所有重点词汇，纯英文单词，用JSON数组格式列出，例如：[\\"abandon\\", \\"persistent\\"]",
   "self_test": "每日自测：基于今天小作文的语境，出5道单词测试（3道中译英，2道英译中）+ 1个句子填空，用纯文本格式。"
 }}
 
+【强制性要求：更换小作文主题】
+请务必为今天的第{day_number}篇小作文选择一个**全新的话题**（如：人工智能、环境保护、职场沟通、旅行见闻、健康饮食等），**绝对禁止**与前几天的故事内容、句式结构雷同！
+
 【滚动复习要求】
-昨天及前几天已经学过的词：{recent_vocab_str}
-请从中挑选 3-5 个词，自然融入今天的故事里复现。其余词用考研核心词汇。
+昨天及前几天已经学过的词汇：{recent_vocab_str}
+请从中挑选 3-5 个词，自然融入今天的故事里复现。其余用考研核心词汇。
 
 【其他要求】
-今天是{datetime.date.today().strftime('%Y年%m月%d日')}，考研政治热点请基于当前时政。
-英文小作文必须明确标注"第{day_number}篇"。
+今天是{datetime.date.today().strftime('%Y年%m月%d日')}。
 self_test 必须是字符串。
 返回纯 JSON。"""
 
     data = {
         "model": "deepseek-chat",
         "messages": [{"role": "user", "content": prompt}],
-        "temperature": 0.7
+        "temperature": 0.9
     }
     response = requests.post(url, headers=headers, json=data)
     response.raise_for_status()
@@ -124,14 +126,13 @@ def html_escape(text):
 def build_html(data, day_number, today_str):
     politics = html_escape(data.get('politics_hotspot', ''))
     news = html_escape(data.get('news_hotspot', ''))
-    editing_pr = html_escape(data.get('editing_task_pr', ''))
-    editing_jianying = html_escape(data.get('editing_task_jianying', ''))
+    editing_task = html_escape(data.get('editing_task', ''))
     essay = html_escape(data.get('memory_essay', ''))
     self_test = html_escape(data.get('self_test', ''))
+    dog_quote = html_escape(data.get('dog_quote', '今天也要加油汪！'))
 
-    plan = EDITING_PLAN.get(day_number, {"pr": "复习", "jianying": "复习"})
-    pr_topic = plan['pr']
-    jy_topic = plan['jianying']
+    plan = EDITING_PLAN.get(day_number, {"task": "自由练习"})
+    today_task_name = plan["task"]
 
     study_html = f"""
     <div class="content-card">
@@ -146,30 +147,24 @@ def build_html(data, day_number, today_str):
 
     video_html = f"""
     <div class="content-card">
-        <div class="section-title">🎬 PR 第{day_number}天：{pr_topic}</div>
-        <div class="content-text">{editing_pr}</div>
+        <div class="section-title">🎬 今日剪辑任务 (第{day_number}天)</div>
+        <div class="content-text" style="font-weight: bold; color: #4a6f8c; margin-bottom: 8px;">{today_task_name}</div>
+        <div class="content-text">{editing_task}</div>
         <div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;">
-            💡 学习路径：B站搜索 <b>岁岁的剪辑手册</b>，或者在B站直接搜“PR 2025 零基础 一帧一帧教程”跟着练。
-        </div>
-    </div>
-    <div class="content-card">
-        <div class="section-title">📱 剪映 第{day_number}天：{jy_topic}</div>
-        <div class="content-text">{editing_jianying}</div>
-        <div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;">
-            💡 学习路径：B站搜索 <b>岁岁的剪辑手册</b>，或直接搜“剪映 零基础 保姆级教程”。
+            💡 找课指南：B站搜 UP主 <b>岁岁的剪辑手册</b> (PR) / <b>陆一舟剪辑</b> (剪映) / <b>我是阿B</b> (调色) / <b>百万剪辑狮</b> (节奏)。
         </div>
     </div>
     """
 
     english_html = f"""
     <div class="content-card">
-        <div class="section-title">📌 今日硬性单词任务</div>
+        <div class="section-title">📌 今日单词任务</div>
         <div class="content-text">
-✅ 四级新词：20 个<br>
-✅ 考研新词：80 个<br>
-✅ 旧词复习：按 App 规划完成<br>
+✅ 四级新词：20 个 <b>(奶酪背单词)</b><br>
+✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>
+✅ 旧词复习：按各自App规划完成<br>
 ✅ 多邻国：1个小单元打卡<br>
-<span style="color: #888; font-size: 12px;">（每日新词总计 100 个，小作文里的词当作语感辅助，不死磕）</span>
+<span style="color: #888; font-size: 12px;">（每日新词总计 100 个，小作文当作语感辅助）</span>
         </div>
     </div>
     <div class="content-card">
@@ -182,7 +177,7 @@ def build_html(data, day_number, today_str):
     </div>
     """
 
-    return study_html, video_html, english_html, ""
+    return study_html, video_html, english_html, dog_quote
 
 def main():
     today = datetime.date.today()
@@ -210,20 +205,20 @@ def main():
     except Exception as e:
         print(f"DeepSeek 调用失败: {e}")
         quote = random.choice(QUOTES_BACKUP)
-        plan = EDITING_PLAN.get(day_number, {"pr": "复习", "jianying": "复习"})
+        plan = EDITING_PLAN.get(day_number, {"task": "复习"})
         data = {
+            "dog_quote": "小狗说：今天没网，但我依然陪你汪！",
             "quote_cn": quote["cn"],
             "quote_en": quote["en"],
             "politics_hotspot": "今日热点暂未更新，请稍后再试",
             "news_hotspot": "今日新闻暂未更新，请稍后再试",
-            "editing_task_pr": f"今日任务：{plan['pr']}，请打开PR练习",
-            "editing_task_jianying": f"今日任务：{plan['jianying']}，请打开剪映练习",
+            "editing_task": "请按照大纲自己练习哦",
             "memory_essay": f"30天趣味记忆第{day_number}篇暂未更新，请稍后再试",
             "key_vocab": [],
             "self_test": "今日自测暂未更新，请稍后再试"
         }
 
-    study_html, video_html, english_html, body_html = build_html(data, day_number, today_str)
+    study_html, video_html, english_html, dog_quote = build_html(data, day_number, today_str)
 
     key_vocab = data.get("key_vocab", [])
     if isinstance(key_vocab, str):
@@ -233,12 +228,12 @@ def main():
             key_vocab = []
 
     history[today_str] = {
+        "dog_quote": dog_quote,
         "quote_cn": data.get("quote_cn", ""),
         "quote_en": data.get("quote_en", ""),
         "study_html": study_html,
         "video_html": video_html,
         "english_html": english_html,
-        "body_html": body_html,
         "key_vocab": key_vocab
     }
 
@@ -250,7 +245,7 @@ def main():
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ data.json 更新成功！第 {day_number} 天，历史共 {len(history)} 天，今日词汇 {len(key_vocab)} 个")
+    print(f"✅ data.json 更新成功！第 {day_number} 天，历史共 {len(history)} 天")
 
 if __name__ == "__main__":
     main()
