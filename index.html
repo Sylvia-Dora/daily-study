@@ -30,15 +30,14 @@
         }
 
         .page { display: none; }
-        .page.active { display: block; animation: fadeIn 0.25s ease; }
+        .page.active { display: block; animation: fadeIn 0.3s ease; }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .teddy { width: 58px; height: 58px; margin: 0 auto 6px; display: block; }
-
         .header { text-align: center; margin-bottom: 6px; }
         .title { font-size: 19px; font-weight: bold; color: #6b5b7b; letter-spacing: 0.5px; }
         .subtitle { font-size: 12px; color: #9388a0; margin-top: 4px; font-weight: 500; }
@@ -48,45 +47,54 @@
             background: rgba(255, 255, 255, 0.6);
             border-radius: 18px;
             padding: 14px 12px;
-            margin: 10px 0;
+            margin: 10px 0 20px;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.8);
         }
         .quote-cn { font-size: 14px; color: #5a4d6b; line-height: 1.6; margin-bottom: 6px; font-weight: 500; }
         .quote-en { font-size: 11px; color: #8b7f9e; line-height: 1.5; font-style: italic; }
 
-        /* 横滑卡片 */
-        .module-scroll {
+        .module-list {
             display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            padding: 8px 2px;
-            margin: 12px 0;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 10px;
         }
-        .module-scroll::-webkit-scrollbar { display: none; }
 
         .module-card {
-            flex: 0 0 auto;
-            width: 130px;
-            border-radius: 18px;
-            padding: 18px 10px;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            border-radius: 20px;
             cursor: pointer;
             transition: transform 0.2s;
-            border: 1px solid rgba(255,255,255,0.7);
-            box-shadow: 0 3px 10px rgba(80, 90, 110, 0.1);
+            border: 1px solid rgba(255,255,255,0.8);
+            box-shadow: 0 4px 15px rgba(80, 90, 110, 0.08);
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
         }
-        .module-card:active { transform: scale(0.94); }
-        .module-icon { font-size: 32px; margin-bottom: 6px; }
-        .module-label { font-size: 14px; font-weight: 700; letter-spacing: 0.3px; }
+        
+        .module-card:active { transform: scale(0.97); }
+        
+        .module-icon { font-size: 26px; margin-right: 16px; width: 40px; text-align: center;}
+        .module-info { display: flex; flex-direction: column; }
+        .module-label { font-size: 16px; font-weight: bold; color: #4a3d5a; margin-bottom: 2px;}
+        .module-desc { font-size: 12px; color: #9388a0; }
 
-        .module-study { background: linear-gradient(135deg, #e2f0e6, #f5faf7); color: #4a7c5f; }
-        .module-video { background: linear-gradient(135deg, #e0e8f5, #f0f3fa); color: #4a648c; }
-        .module-english { background: linear-gradient(135deg, #f5ead8, #fdf6ec); color: #8a6b40; }
+        .module-study { border-left: 6px solid #a3d8b7; }
+        .module-video { border-left: 6px solid #a8cbe6; }
+        .module-english { border-left: 6px solid #f5d5a8; }
 
-        .dog-tip { text-align: center; font-size: 12px; color: #8b7f9e; margin-top: 8px; font-weight: 500; }
+        .dog-tip { 
+            text-align: center; 
+            font-size: 13px; 
+            color: #8b7f9e; 
+            margin-top: 24px; 
+            font-weight: 600;
+            background: rgba(255,255,255,0.5);
+            padding: 10px;
+            border-radius: 12px;
+        }
         .dog-tip span { font-size: 18px; margin-right: 4px; }
 
         .back-btn {
@@ -103,7 +111,6 @@
 
         .page-title { font-size: 17px; font-weight: bold; color: #6b5b7b; text-align: center; margin-bottom: 6px; }
 
-        /* 日期条 */
         .date-bar {
             display: flex;
             align-items: center;
@@ -138,12 +145,12 @@
         .date-pill span { display: block; font-size: 10px; color: #9388a0; font-weight: 400; }
 
         .content-card {
-            background: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.75);
             border-radius: 16px;
-            padding: 14px;
+            padding: 16px;
             margin-bottom: 12px;
             color: #5a4d6b;
-            box-shadow: 0 2px 6px rgba(80,90,110,0.06);
+            box-shadow: 0 2px 8px rgba(80,90,110,0.05);
         }
         .content-card .section-title {
             font-weight: bold;
@@ -153,7 +160,7 @@
         }
         .content-card .content-text {
             font-size: 13px;
-            line-height: 1.7;
+            line-height: 1.8;
             white-space: pre-wrap;
         }
     </style>
@@ -191,27 +198,39 @@
                 <div class="quote-cn" id="quoteCn"></div>
                 <div class="quote-en" id="quoteEn"></div>
             </div>
-            <div class="module-scroll" id="moduleScroll">
+            
+            <!-- 竖排列表 -->
+            <div class="module-list">
                 <div class="module-card module-study" onclick="openModule('study')">
-                    <div class="module-icon">📚</div>
-                    <div class="module-label">Study</div>
+                    <div class="module-icon">🌿</div>
+                    <div class="module-info">
+                        <div class="module-label">Study</div>
+                        <div class="module-desc">政治热点 & 新闻资讯</div>
+                    </div>
                 </div>
                 <div class="module-card module-video" onclick="openModule('video')">
-                    <div class="module-icon">🎬</div>
-                    <div class="module-label">Video</div>
+                    <div class="module-icon">🎞️</div>
+                    <div class="module-info">
+                        <div class="module-label">Video</div>
+                        <div class="module-desc">PR & 剪映 每日修炼</div>
+                    </div>
                 </div>
                 <div class="module-card module-english" onclick="openModule('english')">
-                    <div class="module-icon">🇬🇧</div>
-                    <div class="module-label">English</div>
+                    <div class="module-icon">🔤</div>
+                    <div class="module-info">
+                        <div class="module-label">English</div>
+                        <div class="module-desc">单词任务 & 趣味小作文</div>
+                    </div>
                 </div>
             </div>
-            <div class="dog-tip"><span>🐶</span>小狗：今天也要加油哦~</div>
+            
+            <div class="dog-tip"><span>🐶</span><span id="dogQuote">小狗说：今天也要加油哦~</span></div>
         </div>
 
         <!-- Study 页面 -->
         <div id="studyPage" class="page">
             <button class="back-btn" onclick="backHome()">← 返回</button>
-            <div class="page-title">📚 Study</div>
+            <div class="page-title">🌿 Study</div>
             <div class="date-bar">
                 <button class="date-nav-btn" onclick="changeDate('study', -1)">←</button>
                 <div class="date-pill" id="studyDate">今天<span>加载中...</span></div>
@@ -223,7 +242,7 @@
         <!-- Video 页面 -->
         <div id="videoPage" class="page">
             <button class="back-btn" onclick="backHome()">← 返回</button>
-            <div class="page-title">🎬 Video</div>
+            <div class="page-title">🎞️ Video</div>
             <div class="date-bar">
                 <button class="date-nav-btn" onclick="changeDate('video', -1)">←</button>
                 <div class="date-pill" id="videoDate">今天<span>加载中...</span></div>
@@ -235,7 +254,7 @@
         <!-- English 页面 -->
         <div id="englishPage" class="page">
             <button class="back-btn" onclick="backHome()">← 返回</button>
-            <div class="page-title">🇬🇧 English</div>
+            <div class="page-title">🔤 English</div>
             <div class="date-bar">
                 <button class="date-nav-btn" onclick="changeDate('english', -1)">←</button>
                 <div class="date-pill" id="englishDate">今天<span>加载中...</span></div>
@@ -246,22 +265,15 @@
     </div>
 
     <script>
-        // ========== 全局状态 ==========
         let historyData = {};
         let latestDateStr = '';
-        // 每个页面独立记住自己查看的日期
-        let pageDates = {
-            study: '',
-            video: '',
-            english: ''
-        };
+        let pageDates = { study: '', video: '', english: '' };
 
         function getTodayStr() {
             const d = new Date();
             return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
         }
 
-        // ========== 页面切换 ==========
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
@@ -275,15 +287,16 @@
 
         function backHome() {
             showPage('homePage');
-            // 刷新首页金句
             const todayData = historyData[latestDateStr];
             if (todayData) {
                 document.getElementById('quoteCn').textContent = todayData.quote_cn || '';
                 document.getElementById('quoteEn').textContent = todayData.quote_en || '';
+                if (todayData.dog_quote) {
+                    document.getElementById('dogQuote').textContent = "小狗说：" + todayData.dog_quote;
+                }
             }
         }
 
-        // ========== 日期切换 ==========
         function changeDate(module, delta) {
             const d = new Date(pageDates[module] + 'T00:00:00');
             d.setDate(d.getDate() + delta);
@@ -291,7 +304,6 @@
             renderModule(module);
         }
 
-        // ========== 渲染模块内容 ==========
         function renderModule(module) {
             const dateStr = pageDates[module];
             const isToday = dateStr === latestDateStr;
@@ -317,7 +329,6 @@
             }
         }
 
-        // ========== 首页元素 ==========
         function updateDateTime() {
             const now = new Date();
             const dateStr = now.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' });
@@ -335,7 +346,6 @@
             document.getElementById('greeting').textContent = msg;
         }
 
-        // ========== 加载数据 ==========
         async function loadData() {
             try {
                 const res = await fetch('data.json?t=' + Date.now());
@@ -343,23 +353,23 @@
                 historyData = data.history || {};
                 latestDateStr = data.latest || getTodayStr();
 
-                // 初始化各页面日期为今天
                 pageDates.study = latestDateStr;
                 pageDates.video = latestDateStr;
                 pageDates.english = latestDateStr;
 
-                // 更新首页金句
                 const todayData = historyData[latestDateStr];
                 if (todayData) {
                     document.getElementById('quoteCn').textContent = todayData.quote_cn || '';
                     document.getElementById('quoteEn').textContent = todayData.quote_en || '';
+                    if (todayData.dog_quote) {
+                        document.getElementById('dogQuote').textContent = "小狗说：" + todayData.dog_quote;
+                    }
                 }
             } catch (e) {
                 console.error('加载 data.json 失败', e);
             }
         }
 
-        // ========== 初始化 ==========
         updateDateTime();
         updateGreeting();
         loadData();
