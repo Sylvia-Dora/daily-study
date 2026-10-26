@@ -714,7 +714,37 @@
         "justice",
         "dignity"
       ]
+    },
+    "2026-10-26": {
+      "dog_quote": "今天也要乖乖学剪辑汪！",
+      "quote_cn": "真正的进步，往往藏在那些看似枯燥的重复里。",
+      "quote_en": "Real progress often hides in seemingly boring repetition.",
+      "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">10月24日，十四届全国人大常委会第十八次会议表决通过新修订的海洋环境保护法，自2025年1月1日起施行。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">10月26日，神舟十七号载人飞船成功发射，三名航天员顺利进驻中国空间站。</div>\n    </div>\n    ",
+      "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 今日剪辑任务 (第1天)</div>\n        <div class=\"content-text\" style=\"font-weight: bold; color: #4a6f8c; margin-bottom: 8px;\">PR：看岁岁认识界面/建项目；剪映：看陆一舟认识界面/导入素材</div>\n        <div class=\"content-text\">先认识界面再动手，慢慢来，今天你一定能学会！</div>\n        <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;\">\n            💡 找课指南：B站搜 UP主 <b>岁岁的剪辑手册</b> (PR) / <b>陆一舟剪辑</b> (剪映) / <b>我是阿B</b> (调色) / <b>百万剪辑狮</b> (节奏)。\n        </div>\n    </div>\n    ",
+      "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日单词任务</div>\n        <div class=\"content-text\">\n✅ 四级新词：20 个 <b>(奶酪背单词)</b><br>\n✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>\n✅ 旧词复习：按各自App规划完成<br>\n✅ 多邻国：1个小单元打卡<br>\n<span style=\"color: #888; font-size: 12px;\">（每日新词总计 100 个，小作文当作语感辅助）</span>\n        </div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📖 30天趣味记忆·第1篇</div>\n        <div class=\"content-text\">英文原文：\nA young craftsman named Leo worked in a dusty workshop, trying to compose a coherent design for a wooden vessel. His mentor warned him not to neglect the subtle flaws in the timber, but Leo was too ambitious to listen. One day, a brittle piece cracked under pressure, and his persistent effort seemed to collapse. Instead of yielding to criticism, Leo chose to integrate every concrete detail into a new foundation. He learned that true craftsmanship demands patience, not just momentum. Slowly, the vessel took shape, fragile yet dignified.\n\n中文翻译：\n一位名叫利奥的年轻工匠在一间尘土飞扬的作坊里工作，试图为一艘木船设计出连贯一致的方案。他的导师告诫他不要忽视木材中细微的缺陷，但利奥太有雄心，听不进去。一天，一块脆弱的木料在压力下开裂，他坚持不懈的努力似乎崩塌了。利奥没有屈服于批评，而是选择将每一个具体细节融入新的基础之中。他明白，真正的工艺需要耐心，而不仅仅是冲劲。慢慢地，这艘船成形了，脆弱却庄严。\n\n重点词汇表：\ncraftsman - 工匠\n dusty - 尘土飞扬的\n compose - 组成；创作\n coherent - 连贯的\n vessel - 船；容器\n neglect - 忽视\n subtle - 细微的\n flaw - 缺陷\n timber - 木材\n ambitious - 有雄心的\n brittle - 脆弱的\n persistent - 坚持不懈的\n criticism - 批评\n integrate - 整合\n concrete - 具体的\n foundation - 基础\n momentum - 势头；冲劲\n fragile - 易碎的\n dignified - 庄严的\n craftsmanship - 工艺；手艺\n\n💡读一读培养语感即可，重点记词汇意思，不用死背全文。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">✅ 每日自测与复习</div>\n        <div class=\"content-text\">一、中译英（3道）\n1. 工匠：________\n2. 连贯的：________\n3. 坚持不懈的：________\n\n二、英译中（2道）\n4. neglect：________\n5. foundation：________\n\n三、句子填空（1道）\n6. His ________ effort finally helped him overcome the ________ flaws in the design.（用 persistent 和 subtle 填空）</div>\n    </div>\n    ",
+      "key_vocab": [
+        "craftsman",
+        "dusty",
+        "compose",
+        "coherent",
+        "vessel",
+        "neglect",
+        "subtle",
+        "flaw",
+        "timber",
+        "ambitious",
+        "brittle",
+        "persistent",
+        "criticism",
+        "integrate",
+        "concrete",
+        "foundation",
+        "momentum",
+        "fragile",
+        "dignified",
+        "craftsmanship"
+      ]
     }
   },
-  "latest": "2026-10-25"
+  "latest": "2026-10-26"
 }
