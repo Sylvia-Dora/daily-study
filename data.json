@@ -744,7 +744,37 @@
         "dignified",
         "craftsmanship"
       ]
+    },
+    "2026-10-27": {
+      "dog_quote": "今天剪辑课也要乖乖看汪！",
+      "quote_cn": "真正的发现之旅不在于寻找新的风景，而在于拥有新的眼光。",
+      "quote_en": "The real voyage of discovery consists not in seeking new landscapes, but in having new eyes.",
+      "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">2026年10月，中共中央强调发展新质生产力，推动科技创新与产业创新深度融合。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">2026年10月26日，我国成功发射新一代载人飞船试验船，验证多项关键技术。</div>\n    </div>\n    ",
+      "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 今日剪辑任务 (第1天)</div>\n        <div class=\"content-text\" style=\"font-weight: bold; color: #4a6f8c; margin-bottom: 8px;\">PR：看岁岁认识界面/建项目；剪映：看陆一舟认识界面/导入素材</div>\n        <div class=\"content-text\">先认界面再建项目，每天进步一点点，剪辑小白也能变高手！</div>\n        <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;\">\n            💡 找课指南：B站搜 UP主 <b>岁岁的剪辑手册</b> (PR) / <b>陆一舟剪辑</b> (剪映) / <b>我是阿B</b> (调色) / <b>百万剪辑狮</b> (节奏)。\n        </div>\n    </div>\n    ",
+      "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日单词任务</div>\n        <div class=\"content-text\">\n✅ 四级新词：20 个 <b>(奶酪背单词)</b><br>\n✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>\n✅ 旧词复习：按各自App规划完成<br>\n✅ 多邻国：1个小单元打卡<br>\n<span style=\"color: #888; font-size: 12px;\">（每日新词总计 100 个，小作文当作语感辅助）</span>\n        </div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📖 30天趣味记忆·第1篇</div>\n        <div class=\"content-text\">英文原文：\nAs an ambitious young man, Tom decided to integrate artificial intelligence into his small coffee shop. He was no craftsman of technology, but he was persistent. At first, the vague ideas in his mind seemed abstract and mechanical. He bought a smart machine to compose coffee recipes, but he did not neglect the human touch. He would distinguish each customer&#39;s taste and refuse to deprive them of the warmth of conversation. Though some people criticized his plan as brittle and fragile, he held a coherent vision. He built a concrete foundation for his business, and momentum slowly grew. He felt dignified, not solitary, because he had the liberty to pursue his dream.\n\n中文翻译：\n作为一个有抱负的年轻人，汤姆决定将人工智能融入他的小咖啡店。他并非技术工匠，但他坚持不懈。起初，他脑中模糊的想法显得抽象而机械。他买了一台智能机器来创作咖啡配方，但他没有忽视人情味。他会辨别每位顾客的口味，并拒绝剥夺他们温暖交谈的权利。尽管有人批评他的计划脆弱易碎，但他保持着连贯的愿景。他为生意打下了坚实的基础，势头慢慢增长。他感到有尊严，并不孤独，因为他有追求梦想的自由。\n\n重点词汇表：\n1. ambitious - 有抱负的\n2. integrate - 整合\n3. craftsman - 工匠\n4. persistent - 坚持不懈的\n5. vague - 模糊的\n6. abstract - 抽象的\n7. mechanical - 机械的\n8. compose - 创作\n9. neglect - 忽视\n10. distinguish - 辨别\n11. deprive - 剥夺\n12. brittle - 脆弱的\n13. fragile - 易碎的\n14. coherent - 连贯的\n15. concrete - 具体的\n16. foundation - 基础\n17. momentum - 势头\n18. dignified - 有尊严的\n19. solitary - 孤独的\n20. liberty - 自由\n\n💡读一读培养语感即可，重点记词汇意思，不用死背全文。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">✅ 每日自测与复习</div>\n        <div class=\"content-text\">每日自测（基于今日小作文语境）：\n一、中译英（3题）\n1. 有抱负的 → ________\n2. 整合 → ________\n3. 坚持不懈的 → ________\n二、英译中（2题）\n4. coherent → ________\n5. momentum → ________\n三、句子填空（1题）\n6. He built a ________ foundation for his business, and momentum slowly grew.（填入“具体的”对应的英文单词）</div>\n    </div>\n    ",
+      "key_vocab": [
+        "ambitious",
+        "integrate",
+        "craftsman",
+        "persistent",
+        "vague",
+        "abstract",
+        "mechanical",
+        "compose",
+        "neglect",
+        "distinguish",
+        "deprive",
+        "brittle",
+        "fragile",
+        "coherent",
+        "concrete",
+        "foundation",
+        "momentum",
+        "dignified",
+        "solitary",
+        "liberty"
+      ]
     }
   },
-  "latest": "2026-10-26"
+  "latest": "2026-10-27"
 }
