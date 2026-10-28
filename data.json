@@ -774,7 +774,37 @@
         "solitary",
         "liberty"
       ]
+    },
+    "2026-10-28": {
+      "dog_quote": "今天剪辑课也要乖乖看汪！",
+      "quote_cn": "真正的发现之旅不在于寻找新风景，而在于拥有新眼光。",
+      "quote_en": "The real voyage of discovery consists not in seeking new landscapes, but in having new eyes.",
+      "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">2026年10月，全党深入学习贯彻二十届四中全会精神，聚焦进一步全面深化改革、推进中国式现代化。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">2026年10月，我国人工智能大模型在多领域加速落地，赋能制造业与公共服务提质增效。</div>\n    </div>\n    ",
+      "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 今日剪辑任务 (第2天)</div>\n        <div class=\"content-text\" style=\"font-weight: bold; color: #4a6f8c; margin-bottom: 8px;\">PR：学剃刀(C)和选择(V)；剪映：练分割、删除</div>\n        <div class=\"content-text\">先练剃刀C精准切割，再练选择V灵活选取，分割删除一遍过，今天你就是剪辑小能手！</div>\n        <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;\">\n            💡 找课指南：B站搜 UP主 <b>岁岁的剪辑手册</b> (PR) / <b>陆一舟剪辑</b> (剪映) / <b>我是阿B</b> (调色) / <b>百万剪辑狮</b> (节奏)。\n        </div>\n    </div>\n    ",
+      "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日单词任务</div>\n        <div class=\"content-text\">\n✅ 四级新词：20 个 <b>(奶酪背单词)</b><br>\n✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>\n✅ 旧词复习：按各自App规划完成<br>\n✅ 多邻国：1个小单元打卡<br>\n<span style=\"color: #888; font-size: 12px;\">（每日新词总计 100 个，小作文当作语感辅助）</span>\n        </div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📖 30天趣味记忆·第2篇</div>\n        <div class=\"content-text\">英文原文：\nA young designer named Lin once felt vague about her future. Her desk was cluttered with sketches, yet she could not distinguish which idea was worth pursuing. One day, her mentor told her, &quot;Do not neglect the foundation; a coherent plan matters more than a brilliant flash.&quot; Lin decided to comply with this advice. She cleared her desk, chose one concrete project, and gave it steady momentum. Though the work was solitary and sometimes weary, she refused to ignore small flaws. Gradually, her subtle craftsmanship became visible. She learned that ambition without discipline is brittle, while diligent effort can turn a fragile dream into something dignified.\n\n中文翻译：\n一位名叫林的年轻设计师曾对未来感到模糊。她的桌上堆满草图，却无法分辨哪个想法值得追求。一天，导师告诉她：“不要忽视基础；一个连贯的计划比灵光一现更重要。”林决定听从这一建议。她清理了桌面，选定一个具体的项目，并赋予它稳定的动力。尽管工作孤独且时常令人疲惫，她拒绝忽视细小的瑕疵。渐渐地，她细腻的技艺变得可见。她明白了，没有自律的雄心是脆弱的，而勤奋的努力能把脆弱的梦想变得有尊严。\n\n重点词汇表：\nvague - 模糊的\ncluttered - 杂乱的\ndistinguish - 区分\nneglect - 忽视\nfoundation - 基础\ncoherent - 连贯的\ncomply - 遵从\nconcrete - 具体的\nmomentum - 动力\nsolitary - 孤独的\nweary - 疲惫的\nignore - 忽视\nflaw - 瑕疵\nsubtle - 细腻的\ncraftsmanship - 技艺\nambition - 雄心\nbrittle - 脆弱的\ndiligent - 勤奋的\nfragile - 脆弱的\ndignified - 有尊严的\n\n💡读一读培养语感即可，重点记词汇意思，不用死背全文。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">✅ 每日自测与复习</div>\n        <div class=\"content-text\">一、中译英\n1. 模糊的：_________\n2. 连贯的：_________\n3. 勤奋的：_________\n\n二、英译中\n4. momentum：_________\n5. subtle：_________\n\n三、句子填空\n6. Do not neglect the _________; a coherent plan matters more than a brilliant flash.（根据小作文语境填入合适单词）</div>\n    </div>\n    ",
+      "key_vocab": [
+        "vague",
+        "cluttered",
+        "distinguish",
+        "neglect",
+        "foundation",
+        "coherent",
+        "comply",
+        "concrete",
+        "momentum",
+        "solitary",
+        "weary",
+        "ignore",
+        "flaw",
+        "subtle",
+        "craftsmanship",
+        "ambition",
+        "brittle",
+        "diligent",
+        "fragile",
+        "dignified"
+      ]
     }
   },
-  "latest": "2026-10-27"
+  "latest": "2026-10-28"
 }
