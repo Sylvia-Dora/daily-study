@@ -804,7 +804,37 @@
         "fragile",
         "dignified"
       ]
+    },
+    "2026-10-29": {
+      "dog_quote": "今天也要像追尾巴一样追着目标跑汪！",
+      "quote_cn": "真正的自由不是随心所欲，而是自我主宰。",
+      "quote_en": "True freedom is not doing whatever you want, but mastering yourself.",
+      "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">推动绿色低碳转型，建设人与自然和谐共生的现代化，坚持可持续发展道路。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">全球人工智能治理倡议持续推进，多国加强AI伦理与安全合作框架建设。</div>\n    </div>\n    ",
+      "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 今日剪辑任务 (第3天)</div>\n        <div class=\"content-text\" style=\"font-weight: bold; color: #4a6f8c; margin-bottom: 8px;\">PR：学时间轴缩放/波纹删除；剪映：练音频分离/裁剪</div>\n        <div class=\"content-text\">今天先练时间轴缩放找准节奏，再试波纹删除，剪出干净利落的片子！</div>\n        <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;\">\n            💡 找课指南：B站搜 UP主 <b>岁岁的剪辑手册</b> (PR) / <b>陆一舟剪辑</b> (剪映) / <b>我是阿B</b> (调色) / <b>百万剪辑狮</b> (节奏)。\n        </div>\n    </div>\n    ",
+      "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日单词任务</div>\n        <div class=\"content-text\">\n✅ 四级新词：20 个 <b>(奶酪背单词)</b><br>\n✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>\n✅ 旧词复习：按各自App规划完成<br>\n✅ 多邻国：1个小单元打卡<br>\n<span style=\"color: #888; font-size: 12px;\">（每日新词总计 100 个，小作文当作语感辅助）</span>\n        </div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📖 30天趣味记忆·第3篇</div>\n        <div class=\"content-text\">英文原文：\nIn a small village, a diligent craftsman named Leo often felt weary of his repetitive work. One day, he decided to integrate a subtle change into his craft: he began to compose a tiny story on each wooden vessel he made. At first, the change seemed abstract and even a bit mechanical, but he did not neglect the foundation of his skill. Gradually, a coherent pattern emerged, and customers felt a concrete connection to his work. Leo realized that even solitary effort could gather momentum when paired with persistent imagination. He refused to let criticism deprive him of his liberty to create. Instead, he chose to incline toward justice and dignity in every detail, proving that craftsmanship can be both fragile and dignified.\n\n中文翻译：\n在一个小村庄里，一位名叫里奥的勤奋工匠常常对自己的重复工作感到厌倦。一天，他决定在自己的手艺中融入一个微妙的变化：他开始在制作的每个木制容器上构思一个小故事。起初，这个变化显得抽象甚至有些机械，但他没有忽视技艺的基础。渐渐地，一种连贯的模式出现了，顾客们对他的作品产生了具体的联系感。里奥意识到，即使是孤独的努力，只要配上持久的想象力，也能积聚动力。他拒绝让批评剥夺他创作的自由。相反，他选择在每一个细节中倾向于正义与尊严，证明手工艺既可以脆弱，也可以有尊严。\n\n重点词汇表：\ndiligent - 勤奋的\nweary - 疲倦的\nintegrate - 整合\nsubtle - 微妙的\ncompose - 构思；创作\nvessel - 容器\nabstract - 抽象的\nmechanical - 机械的\nneglect - 忽视\nfoundation - 基础\ncoherent - 连贯的\nconcrete - 具体的\nsolitary - 孤独的\nmomentum - 动力\npersistent - 持久的\ncriticism - 批评\ndeprive - 剥夺\nliberty - 自由\nincline - 倾向于\ndignity - 尊严\n\n💡读一读培养语感即可，重点记词汇意思，不用死背全文。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">✅ 每日自测与复习</div>\n        <div class=\"content-text\">中译英：\n1. 勤奋的：________\n2. 连贯的：________\n3. 剥夺：________\n\n英译中：\n4. momentum：________\n5. subtle：________\n\n句子填空：\n6. He did not ________ the foundation of his skill. (忽视)</div>\n    </div>\n    ",
+      "key_vocab": [
+        "diligent",
+        "weary",
+        "integrate",
+        "subtle",
+        "compose",
+        "vessel",
+        "abstract",
+        "mechanical",
+        "neglect",
+        "foundation",
+        "coherent",
+        "concrete",
+        "solitary",
+        "momentum",
+        "persistent",
+        "criticism",
+        "deprive",
+        "liberty",
+        "incline",
+        "dignity"
+      ]
     }
   },
-  "latest": "2026-10-28"
+  "latest": "2026-10-29"
 }
