@@ -834,7 +834,36 @@
         "incline",
         "dignity"
       ]
+    },
+    "2026-10-30": {
+      "dog_quote": "今天字幕识别也要一次过汪！",
+      "quote_cn": "真正的自由不是随心所欲，而是自我主宰。",
+      "quote_en": "True freedom is not doing whatever you want, but mastering yourself.",
+      "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">推动绿色低碳发展，积极稳妥推进碳达峰碳中和，建设人与自然和谐共生的现代化。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">2026年10月30日，我国多部门联合发布数字素养提升行动方案，助力全民适应智能时代。</div>\n    </div>\n    ",
+      "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 今日剪辑任务 (第4天)</div>\n        <div class=\"content-text\" style=\"font-weight: bold; color: #4a6f8c; margin-bottom: 8px;\">PR：学基础字幕添加；剪映：实操一键识别字幕</div>\n        <div class=\"content-text\">先学PR字幕基础，再练剪映一键识别，动手剪出第一条成片！</div>\n        <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;\">\n            💡 找课指南：B站搜 UP主 <b>岁岁的剪辑手册</b> (PR) / <b>陆一舟剪辑</b> (剪映) / <b>我是阿B</b> (调色) / <b>百万剪辑狮</b> (节奏)。\n        </div>\n    </div>\n    ",
+      "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日单词任务</div>\n        <div class=\"content-text\">\n✅ 四级新词：20 个 <b>(奶酪背单词)</b><br>\n✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>\n✅ 旧词复习：按各自App规划完成<br>\n✅ 多邻国：1个小单元打卡<br>\n<span style=\"color: #888; font-size: 12px;\">（每日新词总计 100 个，小作文当作语感辅助）</span>\n        </div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📖 30天趣味记忆·第4篇</div>\n        <div class=\"content-text\">第4篇：Healthy Eating in a Fast-Paced World\n\nIn modern cities, many people neglect their diet because of busy schedules. They often choose fast food, which is convenient but not nutritious. A balanced meal should include vegetables, fruit, protein, and whole grains. Small changes can make a big difference. For example, preparing lunch at home can help you control salt and oil. Some people believe healthy food is boring, but that is a vague idea; with good recipes, it can be delicious. It is also important to distinguish real hunger from stress eating. If we integrate healthy habits into daily life, we can build a solid foundation for long-term well-being. Food is not just fuel; it reflects how we respect ourselves.\n\n中文翻译：在快节奏的世界里健康饮食\n在现代城市中，许多人因为日程繁忙而忽视饮食。他们常选择方便但缺乏营养的快餐。均衡的一餐应包含蔬菜、水果、蛋白质和全谷物。小改变能带来大不同。例如，在家准备午餐有助于控制盐和油。有些人认为健康食物很无聊，但那是一种模糊的看法；有了好食谱，它也可以很美味。区分真正的饥饿和压力进食也很重要。如果我们把健康习惯融入日常生活，就能为长期健康打下坚实基础。食物不只是燃料，它还反映我们如何尊重自己。\n\n重点词汇表：\nneglect - 忽视\nschedule - 日程安排\nconvenient - 方便的\nnutritious - 有营养的\nbalanced - 均衡的\nprotein - 蛋白质\nwhole grain - 全谷物\ncontrol - 控制\nvague - 模糊的\nrecipe - 食谱\ndistinguish - 区分\nstress - 压力\nintegrate - 融入\nhabit - 习惯\nsolid - 坚实的\nfoundation - 基础\nlong-term - 长期的\nwell-being - 幸福健康\nfuel - 燃料\nrespect - 尊重\n\n💡读一读培养语感即可，重点记词汇意思，不用死背全文。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">✅ 每日自测与复习</div>\n        <div class=\"content-text\">每日自测（基于今日小作文语境）\n一、中译英\n1. 忽视；疏忽 → ______\n2. 有营养的 → ______\n3. 区分；辨别 → ______\n二、英译中\n4. balanced → ______\n5. foundation → ______\n三、句子填空\n6. If we ______ healthy habits into daily life, we can build a solid foundation for long-term well-being. （请填入合适的动词）</div>\n    </div>\n    ",
+      "key_vocab": [
+        "neglect",
+        "schedule",
+        "convenient",
+        "nutritious",
+        "balanced",
+        "protein",
+        "control",
+        "vague",
+        "recipe",
+        "distinguish",
+        "stress",
+        "integrate",
+        "habit",
+        "solid",
+        "foundation",
+        "long-term",
+        "well-being",
+        "fuel",
+        "respect"
+      ]
     }
   },
-  "latest": "2026-10-29"
+  "latest": "2026-10-30"
 }
