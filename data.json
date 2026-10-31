@@ -863,7 +863,37 @@
         "fuel",
         "respect"
       ]
+    },
+    "2026-10-31": {
+      "dog_quote": "今天剪辑课也要乖乖看汪！",
+      "quote_cn": "真正的自由不是随心所欲，而是自我主宰后的从容。",
+      "quote_en": "True freedom is not doing whatever you want, but the calmness after self-mastery.",
+      "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">考研政治：中国式现代化是人口规模巨大的现代化，坚持高质量发展，扎实推进共同富裕。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">神舟二十号载人飞船成功发射，中国航天员乘组顺利进驻空间站开展科学实验。</div>\n    </div>\n    ",
+      "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 今日剪辑任务 (第5天)</div>\n        <div class=\"content-text\" style=\"font-weight: bold; color: #4a6f8c; margin-bottom: 8px;\">PR：学基础导出参数；剪映：学高清导出</div>\n        <div class=\"content-text\">今天学PR导出参数和剪映高清导出，一步步来，你一定能掌握！</div>\n        <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;\">\n            💡 找课指南：B站搜 UP主 <b>岁岁的剪辑手册</b> (PR) / <b>陆一舟剪辑</b> (剪映) / <b>我是阿B</b> (调色) / <b>百万剪辑狮</b> (节奏)。\n        </div>\n    </div>\n    ",
+      "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日单词任务</div>\n        <div class=\"content-text\">\n✅ 四级新词：20 个 <b>(奶酪背单词)</b><br>\n✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>\n✅ 旧词复习：按各自App规划完成<br>\n✅ 多邻国：1个小单元打卡<br>\n<span style=\"color: #888; font-size: 12px;\">（每日新词总计 100 个，小作文当作语感辅助）</span>\n        </div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📖 30天趣味记忆·第5篇</div>\n        <div class=\"content-text\">English:\n\nTom was a diligent office worker who often felt weary after long meetings. One day, his manager gave him a vague task: improve the team&#39;s communication. Tom did not ignore the subtle criticism. Instead, he tried to distinguish between real problems and mere complaints. He decided to compose a short survey and integrate honest feedback into a coherent report. To his surprise, the concrete data revealed that many colleagues felt deprived of respect. Tom&#39;s persistent effort created momentum for change. He learned that genuine progress comes from listening with dignity and acting with liberty of thought.\n\n中文翻译：\n\n汤姆是一位勤勉的上班族，长时间开会后常感疲惫。一天，经理给了他一个模糊的任务：改善团队沟通。汤姆没有忽视这一微妙的批评。相反，他试图区分真正的问题和单纯的抱怨。他决定设计一份简短问卷，并将诚实的反馈整合成一份连贯的报告。令他惊讶的是，具体数据表明许多同事感到缺乏尊重。汤姆坚持不懈的努力创造了变革的势头。他学到，真正的进步来自有尊严地倾听，以及带着思想自由去行动。\n\n重点词汇表：\n1. diligent - 勤勉的\n2. weary - 疲惫的\n3. vague - 模糊的\n4. subtle - 微妙的\n5. criticism - 批评\n6. ignore - 忽视\n7. distinguish - 区分\n8. compose - 撰写；组成\n9. integrate - 整合\n10. coherent - 连贯的\n11. concrete - 具体的\n12. deprive - 剥夺\n13. respect - 尊重\n14. persistent - 坚持不懈的\n15. momentum - 势头\n16. dignity - 尊严\n17. liberty - 自由\n18. genuine - 真正的\n19. feedback - 反馈\n20. reveal - 揭示\n\n💡读一读培养语感即可，重点记词汇意思，不用死背全文。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">✅ 每日自测与复习</div>\n        <div class=\"content-text\">每日自测（基于今日小作文语境）：\n\n一、中译英（3题）\n1. 模糊的：________\n2. 整合：________\n3. 坚持不懈的：________\n\n二、英译中（2题）\n4. coherent：________\n5. dignity：________\n\n三、句子填空（1题）\n6. Tom did not ________ the subtle criticism; instead, he tried to ________ between real problems and mere complaints.\n（从今日词汇中选择两个词填入）</div>\n    </div>\n    ",
+      "key_vocab": [
+        "diligent",
+        "weary",
+        "vague",
+        "subtle",
+        "criticism",
+        "ignore",
+        "distinguish",
+        "compose",
+        "integrate",
+        "coherent",
+        "concrete",
+        "deprive",
+        "respect",
+        "persistent",
+        "momentum",
+        "dignity",
+        "liberty",
+        "genuine",
+        "feedback",
+        "reveal"
+      ]
     }
   },
-  "latest": "2026-10-30"
+  "latest": "2026-10-31"
 }
