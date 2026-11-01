@@ -893,7 +893,37 @@
         "feedback",
         "reveal"
       ]
+    },
+    "2026-11-01": {
+      "dog_quote": "今天剪视频也要乖乖陪着我汪！",
+      "quote_cn": "真正的发现之旅不在于寻找新风景，而在于拥有新眼光。",
+      "quote_en": "The real voyage of discovery consists not in seeking new landscapes, but in having new eyes.",
+      "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">推动绿色低碳发展，建设美丽中国，实现人与自然和谐共生的现代化。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">2026年世界互联网大会聚焦人工智能治理与数字合作，多国代表共议规则。</div>\n    </div>\n    ",
+      "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 今日剪辑任务 (第6天)</div>\n        <div class=\"content-text\" style=\"font-weight: bold; color: #4a6f8c; margin-bottom: 8px;\">【实操日】随便拍5段视频，用PR和剪映各剪一个15秒流水账</div>\n        <div class=\"content-text\">别怕流水账，先剪出来就是胜利，五段素材开始你的PR+剪映双剪之旅吧！</div>\n        <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;\">\n            💡 找课指南：B站搜 UP主 <b>岁岁的剪辑手册</b> (PR) / <b>陆一舟剪辑</b> (剪映) / <b>我是阿B</b> (调色) / <b>百万剪辑狮</b> (节奏)。\n        </div>\n    </div>\n    ",
+      "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日单词任务</div>\n        <div class=\"content-text\">\n✅ 四级新词：20 个 <b>(奶酪背单词)</b><br>\n✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>\n✅ 旧词复习：按各自App规划完成<br>\n✅ 多邻国：1个小单元打卡<br>\n<span style=\"color: #888; font-size: 12px;\">（每日新词总计 100 个，小作文当作语感辅助）</span>\n        </div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📖 30天趣味记忆·第6篇</div>\n        <div class=\"content-text\">Last week, I attended a workshop on artificial intelligence and environmental protection. The speaker, a diligent researcher, revealed how AI can help monitor pollution in real time. She stressed that we must not neglect the subtle signals of climate change. Although some data seemed vague at first, her team used a coherent framework to integrate information from various sources. They built a concrete system to distinguish genuine progress from abstract promises. I realized that technology alone is not enough; we need persistent effort and clear feedback to sustain momentum. This workshop gave me a solid foundation for understanding how innovation can support long-term well-being. 上周，我参加了一个关于人工智能与环境保护的研讨会。演讲者是一位勤奋的研究者，她揭示了AI如何帮助实时监测污染。她强调，我们不能忽视气候变化的微妙信号。尽管有些数据起初看似模糊，但她的团队用连贯的框架整合了来自不同来源的信息。他们建立了一个具体的系统来区分真正的进展和抽象的承诺。我意识到仅靠技术是不够的；我们需要持续的努力和清晰的反馈来保持势头。这次研讨会为我理解创新如何支持长期福祉打下了坚实的基础。 重点词汇：diligent - 勤奋的；reveal - 揭示；neglect - 忽视；subtle - 微妙的；vague - 模糊的；coherent - 连贯的；integrate - 整合；concrete - 具体的；distinguish - 区分；genuine - 真正的；abstract - 抽象的；persistent - 持续的；feedback - 反馈；momentum - 势头；solid - 坚实的；foundation - 基础；long-term - 长期的；well-being - 福祉；monitor - 监测；sustain - 维持。💡读一读培养语感即可，重点记词汇意思，不用死背全文。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">✅ 每日自测与复习</div>\n        <div class=\"content-text\">中译英：1. 勤奋的 2. 忽视 3. 连贯的\n英译中：4. subtle 5. momentum\n句子填空：The team used a ______ framework to ______ information from various sources. (coherent / integrate)</div>\n    </div>\n    ",
+      "key_vocab": [
+        "diligent",
+        "reveal",
+        "neglect",
+        "subtle",
+        "vague",
+        "coherent",
+        "integrate",
+        "concrete",
+        "distinguish",
+        "genuine",
+        "abstract",
+        "persistent",
+        "feedback",
+        "momentum",
+        "solid",
+        "foundation",
+        "long-term",
+        "well-being",
+        "monitor",
+        "sustain"
+      ]
     }
   },
-  "latest": "2026-10-31"
+  "latest": "2026-11-01"
 }
