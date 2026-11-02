@@ -925,34 +925,12 @@
       ]
     },
     "2026-11-02": {
-      "dog_quote": "盲操剪辑别慌，小狗给你摇尾巴加油汪！",
-      "quote_cn": "重复不是机械的循环，而是让生疏在不知不觉中变得自然。",
-      "quote_en": "Repetition is not a mechanical loop, but a way to make the unfamiliar naturally familiar.",
-      "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">考研政治热点：中国式现代化强调高质量发展，坚持科技自立自强，推进全体人民共同富裕。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">新闻热点：人工智能应用加速落地，多行业推进智能化转型，同时数据安全与伦理治理受关注。</div>\n    </div>\n    ",
-      "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 今日剪辑任务 (第7天)</div>\n        <div class=\"content-text\" style=\"font-weight: bold; color: #4a6f8c; margin-bottom: 8px;\">【复盘日】不看教程，盲操切、拖、导出，记下不熟的快捷键</div>\n        <div class=\"content-text\">今天复盘日，大胆盲操切拖导，记下卡壳的快捷键就是进步！</div>\n        <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;\">\n            💡 找课指南：B站搜 UP主 <b>岁岁的剪辑手册</b> (PR) / <b>陆一舟剪辑</b> (剪映) / <b>我是阿B</b> (调色) / <b>百万剪辑狮</b> (节奏)。\n        </div>\n    </div>\n    ",
-      "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日单词任务</div>\n        <div class=\"content-text\">\n✅ 四级新词：20 个 <b>(奶酪背单词)</b><br>\n✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>\n✅ 旧词复习：按各自App规划完成<br>\n✅ 多邻国：1个小单元打卡<br>\n<span style=\"color: #888; font-size: 12px;\">（每日新词总计 100 个，小作文当作语感辅助）</span>\n        </div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📖 30天趣味记忆·第7篇</div>\n        <div class=\"content-text\">30天趣味记忆第7篇：The New Recipe of Healthy Eating\n\nLily used to neglect breakfast and rely on fast food, which deprived her of energy and made her feel weary by noon. One day, a nutritionist gave her a simple recipe: a balanced plate with protein, vegetables, and whole grains. At first, the schedule seemed inconvenient, but Lily decided to monitor her habit for a month. She composed a weekly menu and integrated small changes into her daily routine. Surprisingly, this subtle shift revealed concrete results: her stress dropped, and her well-being improved. She learned that a solid foundation of healthy eating does not require a strict diet but a sustainable habit. Food, she realized, is the fuel that sustains both body and mind.\n\n中文翻译：莉莉过去常常忽视早餐、依赖快餐，这让她缺乏能量，到中午就感到疲惫。一天，一位营养师给了她一个简单的食谱：一份包含蛋白质、蔬菜和全谷物的均衡餐盘。起初，这个时间安排似乎不方便，但莉莉决定监测自己的习惯一个月。她编写了每周菜单，并把小改变融入日常。令人惊讶的是，这个微妙转变带来了具体结果：她的压力下降了，幸福感提升了。她明白，健康饮食的坚实基础不需要严格节食，而需要可持续的习惯。她意识到，食物是维持身心运转的燃料。\n\n重点词汇表：neglect - 忽视；deprive - 剥夺；weary - 疲惫的；recipe - 食谱/方法；balanced - 均衡的；protein - 蛋白质；schedule - 时间安排；inconvenient - 不方便的；monitor - 监测；compose - 编写/组成；integrate - 融入/整合；subtle - 微妙的；reveal - 揭示；concrete - 具体的；stress - 压力；well-being - 幸福感/健康；solid - 坚实的；foundation - 基础；sustain - 维持；sustainable - 可持续的。💡读一读培养语感即可，重点记词汇意思，不用死背全文。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">✅ 每日自测与复习</div>\n        <div class=\"content-text\">每日自测（基于今日小作文语境）：\n1. 中译英：忽视 —— ______\n2. 中译英：监测 —— ______\n3. 中译英：可持续的 —— ______\n4. 英译中：weary —— ______\n5. 英译中：foundation —— ______\n6. 句子填空：A ______ diet with protein and vegetables can ______ her well-being.（根据语境填入两个今日词汇）</div>\n    </div>\n    ",
-      "key_vocab": [
-        "neglect",
-        "deprive",
-        "weary",
-        "recipe",
-        "balanced",
-        "protein",
-        "schedule",
-        "inconvenient",
-        "monitor",
-        "compose",
-        "integrate",
-        "subtle",
-        "reveal",
-        "concrete",
-        "stress",
-        "well-being",
-        "solid",
-        "foundation",
-        "sustain",
-        "sustainable"
-      ]
+      "dog_quote": "今天剪辑课也要乖乖看汪！",
+      "quote_cn": "路虽远行则将至，事虽难做则必成。",
+      "quote_en": "The road may be long, but walking will get you there; the task may be hard, but doing it will make it succeed.",
+      "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">考研政治重点：中国式现代化是强国建设、民族复兴的唯一正确道路，坚持党的全面领导。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">2026年11月2日：神舟二十号乘组在轨工作顺利，空间科学实验稳步推进。</div>\n    </div>\n    ",
+      "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 今日剪辑任务 (第1天)</div>\n        <div class=\"content-text\" style=\"font-weight: bold; color: #4a6f8c; margin-bottom: 8px;\">PR：看岁岁认识界面/建项目；剪映：看陆一舟认识界面/导入素材</div>\n        <div class=\"content-text\">先认界面再建项目，打开PR和剪映，动手试一遍就是胜利！</div>\n        <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;\">\n            💡 找课指南：B站搜 UP主 <b>岁岁的剪辑手册</b> (PR) / <b>陆一舟剪辑</b> (剪映) / <b>我是阿B</b> (调色) / <b>百万剪辑狮</b> (节奏)。\n        </div>\n    </div>\n    ",
+      "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日单词任务</div>\n        <div class=\"content-text\">\n✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>\n✅ 旧词复习：按各自App规划完成<br>\n✅ 多邻国：1个小单元打卡\n        </div>\n    </div>\n    "
     }
   },
   "latest": "2026-11-02"
