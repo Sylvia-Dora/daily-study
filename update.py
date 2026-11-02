@@ -6,8 +6,8 @@ import random
 
 DEEPSEEK_API_KEY = os.environ['DEEPSEEK_API_KEY']
 
-# ========== 全新起点：2026年10月27日 = 第1天 ==========
-START_DATE = datetime.date(2026, 10, 27)
+# ========== 全新起点：2026年11月3日 = 第1天 ==========
+START_DATE = datetime.date(2026, 11, 3)
 
 # ========== 30天剪辑基础双修大纲 ==========
 EDITING_PLAN = {
@@ -49,27 +49,9 @@ QUOTES_BACKUP = [
     {"cn": "种一棵树最好的时间是十年前，其次是现在。", "en": "The best time to plant a tree was 10 years ago. The second best time is now."}
 ]
 
-def get_recent_vocab(history, today, days=6):
-    vocab_pool = []
-    for i in range(1, days + 1):
-        date = today - datetime.timedelta(days=i)
-        date_str = date.strftime("%Y-%m-%d")
-        if date_str in history:
-            vocab_list = history[date_str].get('key_vocab', [])
-            vocab_pool.extend(vocab_list)
-    seen = set()
-    unique = []
-    for w in vocab_pool:
-        w_lower = w.lower()
-        if w_lower not in seen:
-            seen.add(w_lower)
-            unique.append(w)
-    return unique
-
-def generate_all_content(day_number, recent_vocab):
+def generate_all_content(day_number):
     plan = EDITING_PLAN.get(day_number, {"task": "自由复习或练习"})
     today_task = plan["task"]
-    recent_vocab_str = "、".join(recent_vocab[:40]) if recent_vocab else "（无）"
 
     url = "https://api.deepseek.com/chat/completions"
     headers = {
@@ -84,22 +66,10 @@ def generate_all_content(day_number, recent_vocab):
   "quote_en": "对应的英文翻译",
   "politics_hotspot": "考研政治热点（50字内）",
   "news_hotspot": "新闻热点（50字内）",
-  "editing_task": "今天的核心任务是：{today_task}。请用鼓励的语气，写一句简短的今日剪辑行动建议（30字内）",
-  "memory_essay": "30天趣味记忆第{day_number}篇：英文原文约100-120词 + 中文翻译 + 重点词汇表（15-20个，必须带中文意思，格式：单词 - 中文意思）。并在最后加一句：💡读一读培养语感即可，重点记词汇意思，不用死背全文。",
-  "key_vocab": "今天小作文里用到的所有重点词汇，纯英文单词，用JSON数组格式列出，例如：[\\"abandon\\", \\"persistent\\"]",
-  "self_test": "每日自测：基于今天小作文的语境，出5道单词测试（3道中译英，2道英译中）+ 1个句子填空，用纯文本格式。"
+  "editing_task": "今天的核心任务是：{today_task}。请用鼓励的语气，写一句简短的今日剪辑行动建议（30字内）"
 }}
-
-【强制性要求：更换小作文主题】
-请务必为今天的第{day_number}篇小作文选择一个**全新的话题**（如：人工智能、环境保护、职场沟通、旅行见闻、健康饮食等），**绝对禁止**与前几天的故事内容、句式结构雷同！
-
-【滚动复习要求】
-昨天及前几天已经学过的词汇：{recent_vocab_str}
-请从中挑选 3-5 个词，自然融入今天的故事里复现。其余用考研核心词汇。
-
 【其他要求】
 今天是{datetime.date.today().strftime('%Y年%m月%d日')}。
-self_test 必须是字符串。
 返回纯 JSON。"""
 
     data = {
@@ -127,8 +97,6 @@ def build_html(data, day_number, today_str):
     politics = html_escape(data.get('politics_hotspot', ''))
     news = html_escape(data.get('news_hotspot', ''))
     editing_task = html_escape(data.get('editing_task', ''))
-    essay = html_escape(data.get('memory_essay', ''))
-    self_test = html_escape(data.get('self_test', ''))
     dog_quote = html_escape(data.get('dog_quote', '今天也要加油汪！'))
 
     plan = EDITING_PLAN.get(day_number, {"task": "自由练习"})
@@ -156,24 +124,15 @@ def build_html(data, day_number, today_str):
     </div>
     """
 
+    # 彻底精简的英语任务栏
     english_html = f"""
     <div class="content-card">
         <div class="section-title">📌 今日单词任务</div>
         <div class="content-text">
-✅ 四级新词：20 个 <b>(奶酪背单词)</b><br>
 ✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>
 ✅ 旧词复习：按各自App规划完成<br>
-✅ 多邻国：1个小单元打卡<br>
-<span style="color: #888; font-size: 12px;">（每日新词总计 100 个，小作文当作语感辅助）</span>
+✅ 多邻国：1个小单元打卡
         </div>
-    </div>
-    <div class="content-card">
-        <div class="section-title">📖 30天趣味记忆·第{day_number}篇</div>
-        <div class="content-text">{essay}</div>
-    </div>
-    <div class="content-card">
-        <div class="section-title">✅ 每日自测与复习</div>
-        <div class="content-text">{self_test}</div>
     </div>
     """
 
@@ -198,10 +157,8 @@ def main():
         except Exception as e:
             print(f"读取旧 data.json 失败: {e}")
 
-    recent_vocab = get_recent_vocab(history, today, days=6)
-
     try:
-        data = generate_all_content(day_number, recent_vocab)
+        data = generate_all_content(day_number)
     except Exception as e:
         print(f"DeepSeek 调用失败: {e}")
         quote = random.choice(QUOTES_BACKUP)
@@ -212,20 +169,10 @@ def main():
             "quote_en": quote["en"],
             "politics_hotspot": "今日热点暂未更新，请稍后再试",
             "news_hotspot": "今日新闻暂未更新，请稍后再试",
-            "editing_task": "请按照大纲自己练习哦",
-            "memory_essay": f"30天趣味记忆第{day_number}篇暂未更新，请稍后再试",
-            "key_vocab": [],
-            "self_test": "今日自测暂未更新，请稍后再试"
+            "editing_task": "请按照大纲自己练习哦"
         }
 
     study_html, video_html, english_html, dog_quote = build_html(data, day_number, today_str)
-
-    key_vocab = data.get("key_vocab", [])
-    if isinstance(key_vocab, str):
-        try:
-            key_vocab = json.loads(key_vocab)
-        except:
-            key_vocab = []
 
     history[today_str] = {
         "dog_quote": dog_quote,
@@ -233,8 +180,7 @@ def main():
         "quote_en": data.get("quote_en", ""),
         "study_html": study_html,
         "video_html": video_html,
-        "english_html": english_html,
-        "key_vocab": key_vocab
+        "english_html": english_html
     }
 
     output = {
