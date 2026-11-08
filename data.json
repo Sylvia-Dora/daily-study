@@ -971,7 +971,15 @@
       "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">2026年11月，学习贯彻党的二十届四中全会精神，聚焦‘十五五’规划开局。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">2026年世界互联网大会乌镇峰会今日开幕，聚焦AI治理与数字合作。</div>\n    </div>\n    ",
       "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 今日剪辑任务 (第5天)</div>\n        <div class=\"content-text\" style=\"font-weight: bold; color: #4a6f8c; margin-bottom: 8px;\">PR：学基础导出参数；剪映：学高清导出</div>\n        <div class=\"content-text\">先背熟PR导出参数，再试剪映高清导出，十分钟搞定，加油！</div>\n        <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;\">\n            💡 找课指南：B站搜 UP主 <b>岁岁的剪辑手册</b> (PR) / <b>陆一舟剪辑</b> (剪映) / <b>我是阿B</b> (调色) / <b>百万剪辑狮</b> (节奏)。\n        </div>\n    </div>\n    ",
       "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日单词任务</div>\n        <div class=\"content-text\">\n✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>\n✅ 旧词复习：按各自App规划完成<br>\n✅ 多邻国：1个小单元打卡\n        </div>\n    </div>\n    "
+    },
+    "2026-11-08": {
+      "dog_quote": "今天也要乖乖剪片汪！",
+      "quote_cn": "生活的意义不在于等待风暴过去，而在于学会在雨中跳舞。",
+      "quote_en": "Life isn't about waiting for the storm to pass; it's about learning to dance in the rain.",
+      "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">2026年11月8日，第六届中国国际进口博览会正在上海举行，强调高水平对外开放。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">2026年世界互联网大会乌镇峰会今日开幕，聚焦人工智能治理与数字合作。</div>\n    </div>\n    ",
+      "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 今日剪辑任务 (第6天)</div>\n        <div class=\"content-text\" style=\"font-weight: bold; color: #4a6f8c; margin-bottom: 8px;\">【实操日】随便拍5段视频，用PR和剪映各剪一个15秒流水账</div>\n        <div class=\"content-text\">大胆拍5段，PR剪映各15秒流水账，先完成再完美，冲！</div>\n        <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;\">\n            💡 找课指南：B站搜 UP主 <b>岁岁的剪辑手册</b> (PR) / <b>陆一舟剪辑</b> (剪映) / <b>我是阿B</b> (调色) / <b>百万剪辑狮</b> (节奏)。\n        </div>\n    </div>\n    ",
+      "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日单词任务</div>\n        <div class=\"content-text\">\n✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>\n✅ 旧词复习：按各自App规划完成<br>\n✅ 多邻国：1个小单元打卡\n        </div>\n    </div>\n    "
     }
   },
-  "latest": "2026-11-07"
+  "latest": "2026-11-08"
 }
