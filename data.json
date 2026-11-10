@@ -987,7 +987,15 @@
       "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">推动高质量发展，建设现代化经济体系，坚持新发展理念。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">2026年世界互联网大会乌镇峰会聚焦人工智能治理与数字合作。</div>\n    </div>\n    ",
       "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 今日剪辑任务 (第7天)</div>\n        <div class=\"content-text\" style=\"font-weight: bold; color: #4a6f8c; margin-bottom: 8px;\">【复盘日】不看教程，盲操切、拖、导出，记下不熟的快捷键</div>\n        <div class=\"content-text\">大胆盲操切拖导，卡壳就记快捷键，你超棒！</div>\n        <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;\">\n            💡 找课指南：B站搜 UP主 <b>岁岁的剪辑手册</b> (PR) / <b>陆一舟剪辑</b> (剪映) / <b>我是阿B</b> (调色) / <b>百万剪辑狮</b> (节奏)。\n        </div>\n    </div>\n    ",
       "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日单词任务</div>\n        <div class=\"content-text\">\n✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>\n✅ 旧词复习：按各自App规划完成<br>\n✅ 多邻国：1个小单元打卡\n        </div>\n    </div>\n    "
+    },
+    "2026-11-10": {
+      "dog_quote": "今天关键帧也要乖乖打汪！",
+      "quote_cn": "慢慢来，比较快；把每一帧都剪进时间的纹理里。",
+      "quote_en": "Take it slow, and you'll go fast; cut every frame into the texture of time.",
+      "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">2026年11月，学习贯彻党的二十届四中全会精神，聚焦“十五五”规划开局部署。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">2026年世界互联网大会乌镇峰会11月举行，聚焦人工智能治理与数字合作。</div>\n    </div>\n    ",
+      "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 今日剪辑任务 (第8天)</div>\n        <div class=\"content-text\" style=\"font-weight: bold; color: #4a6f8c; margin-bottom: 8px;\">PR：看岁岁学关键帧；剪映：看陆一舟学关键帧</div>\n        <div class=\"content-text\">先看岁岁和陆一舟的关键帧教程，再动手练一遍，今天你也能丝滑出片！</div>\n        <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;\">\n            💡 找课指南：B站搜 UP主 <b>岁岁的剪辑手册</b> (PR) / <b>陆一舟剪辑</b> (剪映) / <b>我是阿B</b> (调色) / <b>百万剪辑狮</b> (节奏)。\n        </div>\n    </div>\n    ",
+      "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日单词任务</div>\n        <div class=\"content-text\">\n✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>\n✅ 旧词复习：按各自App规划完成<br>\n✅ 多邻国：1个小单元打卡\n        </div>\n    </div>\n    "
     }
   },
-  "latest": "2026-11-09"
+  "latest": "2026-11-10"
 }
