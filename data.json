@@ -1003,7 +1003,15 @@
       "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">2026年11月，全党深入学习贯彻二十届四中全会精神，聚焦进一步全面深化改革、推进中国式现代化。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">2026年11月11日，双十一购物节迎来第十七届，以旧换新政策持续发力，绿色智能消费成亮点。</div>\n    </div>\n    ",
       "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 今日剪辑任务 (第9天)</div>\n        <div class=\"content-text\" style=\"font-weight: bold; color: #4a6f8c; margin-bottom: 8px;\">PR：学线性蒙版；剪映：学蒙版遮罩</div>\n        <div class=\"content-text\">今天双十一也别停手，打开PR和剪映，把蒙版玩出花来！加油汪！</div>\n        <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;\">\n            💡 找课指南：B站搜 UP主 <b>岁岁的剪辑手册</b> (PR) / <b>陆一舟剪辑</b> (剪映) / <b>我是阿B</b> (调色) / <b>百万剪辑狮</b> (节奏)。\n        </div>\n    </div>\n    ",
       "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日单词任务</div>\n        <div class=\"content-text\">\n✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>\n✅ 旧词复习：按各自App规划完成<br>\n✅ 多邻国：1个小单元打卡\n        </div>\n    </div>\n    "
+    },
+    "2026-11-12": {
+      "dog_quote": "今天剪辑课也要乖乖看汪！",
+      "quote_cn": "种一棵树最好的时间是十年前，其次是现在。",
+      "quote_en": "The best time to plant a tree was ten years ago. The second best time is now.",
+      "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">2026年11月，全党深入学习贯彻二十届四中全会精神，聚焦进一步全面深化改革、推进中国式现代化。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">2026年11月12日，第十五届中国国际航空航天博览会在珠海举行，多款新型国产装备首次公开展示。</div>\n    </div>\n    ",
+      "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 今日剪辑任务 (第10天)</div>\n        <div class=\"content-text\" style=\"font-weight: bold; color: #4a6f8c; margin-bottom: 8px;\">PR：学变速(时间重映射)；剪映：学常规/曲线变速</div>\n        <div class=\"content-text\">今天先练PR时间重映射，再刷剪映曲线变速，动手开剪，你超棒！</div>\n        <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;\">\n            💡 找课指南：B站搜 UP主 <b>岁岁的剪辑手册</b> (PR) / <b>陆一舟剪辑</b> (剪映) / <b>我是阿B</b> (调色) / <b>百万剪辑狮</b> (节奏)。\n        </div>\n    </div>\n    ",
+      "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日单词任务</div>\n        <div class=\"content-text\">\n✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>\n✅ 旧词复习：按各自App规划完成<br>\n✅ 多邻国：1个小单元打卡\n        </div>\n    </div>\n    "
     }
   },
-  "latest": "2026-11-11"
+  "latest": "2026-11-12"
 }
