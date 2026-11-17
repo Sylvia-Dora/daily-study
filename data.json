@@ -1043,7 +1043,15 @@
       "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">二十届四中全会部署进一步全面深化改革，强调以中国式现代化推进高质量发展。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">2026年世界互联网大会乌镇峰会聚焦人工智能治理与数字合作，多国发布联合倡议。</div>\n    </div>\n    ",
       "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 今日剪辑任务 (第14天)</div>\n        <div class=\"content-text\" style=\"font-weight: bold; color: #4a6f8c; margin-bottom: 8px;\">【复盘日】找3个短视频，看前10秒怎么切的，模仿一下</div>\n        <div class=\"content-text\">复盘日：看3条前10秒切片，模仿着剪一版，你肯定行！</div>\n        <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;\">\n            💡 找课指南：B站搜 UP主 <b>岁岁的剪辑手册</b> (PR) / <b>陆一舟剪辑</b> (剪映) / <b>我是阿B</b> (调色) / <b>百万剪辑狮</b> (节奏)。\n        </div>\n    </div>\n    ",
       "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日单词任务</div>\n        <div class=\"content-text\">\n✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>\n✅ 旧词复习：按各自App规划完成<br>\n✅ 多邻国：1个小单元打卡\n        </div>\n    </div>\n    "
+    },
+    "2026-11-17": {
+      "dog_quote": "今天剪辑也要乖乖看汪！",
+      "quote_cn": "路虽远，行则将至；事虽难，做则必成。",
+      "quote_en": "The road may be long, but walking brings arrival; the task may be hard, but doing brings success.",
+      "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">推动高质量发展，建设现代化产业体系，坚持稳中求进工作总基调。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">2026年世界互联网大会乌镇峰会聚焦人工智能治理与数字合作。</div>\n    </div>\n    ",
+      "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 今日剪辑任务 (第15天)</div>\n        <div class=\"content-text\" style=\"font-weight: bold; color: #4a6f8c; margin-bottom: 8px;\">PR：看岁岁学文字排版；剪映：学花字和文字动画</div>\n        <div class=\"content-text\">先看岁岁学排版，再练花字动画，动手剪一小段吧！</div>\n        <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;\">\n            💡 找课指南：B站搜 UP主 <b>岁岁的剪辑手册</b> (PR) / <b>陆一舟剪辑</b> (剪映) / <b>我是阿B</b> (调色) / <b>百万剪辑狮</b> (节奏)。\n        </div>\n    </div>\n    ",
+      "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日单词任务</div>\n        <div class=\"content-text\">\n✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>\n✅ 旧词复习：按各自App规划完成<br>\n✅ 多邻国：1个小单元打卡\n        </div>\n    </div>\n    "
     }
   },
-  "latest": "2026-11-16"
+  "latest": "2026-11-17"
 }
