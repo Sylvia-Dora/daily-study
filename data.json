@@ -1059,7 +1059,15 @@
       "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">2026年11月，全党深入学习贯彻二十届四中全会精神，聚焦“十五五”规划开局，推进中国式现代化。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">2026年世界互联网大会乌镇峰会11月举行，聚焦人工智能治理与数字合作，多项成果发布。</div>\n    </div>\n    ",
       "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 今日剪辑任务 (第16天)</div>\n        <div class=\"content-text\" style=\"font-weight: bold; color: #4a6f8c; margin-bottom: 8px;\">PR：学画面防抖；剪映：学基础防抖/画面裁剪</div>\n        <div class=\"content-text\">先学PR防抖再练剪映裁剪，稳住画面，今天一定行！</div>\n        <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;\">\n            💡 找课指南：B站搜 UP主 <b>岁岁的剪辑手册</b> (PR) / <b>陆一舟剪辑</b> (剪映) / <b>我是阿B</b> (调色) / <b>百万剪辑狮</b> (节奏)。\n        </div>\n    </div>\n    ",
       "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日单词任务</div>\n        <div class=\"content-text\">\n✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>\n✅ 旧词复习：按各自App规划完成<br>\n✅ 多邻国：1个小单元打卡\n        </div>\n    </div>\n    "
+    },
+    "2026-11-19": {
+      "dog_quote": "调色别怕手抖，小狗给你舔舔屏汪！",
+      "quote_cn": "色彩是沉默的语言，却能说出最动人的故事。",
+      "quote_en": "Color is a silent language, yet it tells the most moving stories.",
+      "study_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🔥 考研政治热点</div>\n        <div class=\"content-text\">考研政治热点：2026年11月，二十届四中全会精神学习贯彻，聚焦进一步全面深化改革与中国式现代化。</div>\n    </div>\n    <div class=\"content-card\">\n        <div class=\"section-title\">📰 新闻热点</div>\n        <div class=\"content-text\">新闻热点：2026年世界互联网大会乌镇峰会11月19日开幕，聚焦人工智能治理与数字合作。</div>\n    </div>\n    ",
+      "video_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">🎬 今日剪辑任务 (第17天)</div>\n        <div class=\"content-text\" style=\"font-weight: bold; color: #4a6f8c; margin-bottom: 8px;\">PR专项：看【我是阿B】学基础调色(Lumetri面板)</div>\n        <div class=\"content-text\">打开Lumetri，先拉个对比度，你离调色大师近一步啦！</div>\n        <div style=\"margin-top: 10px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 12px; color: #888;\">\n            💡 找课指南：B站搜 UP主 <b>岁岁的剪辑手册</b> (PR) / <b>陆一舟剪辑</b> (剪映) / <b>我是阿B</b> (调色) / <b>百万剪辑狮</b> (节奏)。\n        </div>\n    </div>\n    ",
+      "english_html": "\n    <div class=\"content-card\">\n        <div class=\"section-title\">📌 今日单词任务</div>\n        <div class=\"content-text\">\n✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>\n✅ 旧词复习：按各自App规划完成<br>\n✅ 多邻国：1个小单元打卡\n        </div>\n    </div>\n    "
     }
   },
-  "latest": "2026-11-18"
+  "latest": "2026-11-19"
 }
