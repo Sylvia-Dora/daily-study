@@ -6,8 +6,8 @@ import random
 
 DEEPSEEK_API_KEY = os.environ['DEEPSEEK_API_KEY']
 
-# ========== 全新起点：2026年11月3日 = 第1天 ==========
-START_DATE = datetime.date(2026, 11, 3)
+# ========== 全新起点：2026年11月24日 = 第1天 ==========
+START_DATE = datetime.date(2026, 11, 24)
 
 # ========== 30天剪辑基础双修大纲 ==========
 EDITING_PLAN = {
@@ -66,11 +66,35 @@ def generate_all_content(day_number):
   "quote_en": "对应的英文翻译",
   "politics_hotspot": "考研政治热点（50字内）",
   "news_hotspot": "新闻热点（50字内）",
-  "editing_task": "今天的核心任务是：{today_task}。请用鼓励的语气，写一句简短的今日剪辑行动建议（30字内）"
+  "editing_task": "今天的核心任务是：{today_task}。请用鼓励的语气，写一句简短的今日剪辑行动建议（30字内）",
+  "long_sentences": [
+    {{
+      "sentence": "英文原句",
+      "structure": "括号法拆解",
+      "vocab": "核心生词",
+      "translation": "中文翻译"
+    }},
+    {{
+      "sentence": "英文原句",
+      "structure": "括号法拆解",
+      "vocab": "核心生词",
+      "translation": "中文翻译"
+    }}
+  ]
 }}
+
+【长难句要求 - 重要】
+1. 每天必须生成 2 句，难度严格对标考研英语（二）阅读真题，不要四六级太简单，也不要英语一那种多层嵌套的变态难。
+2. 借鉴田静、刘晓燕的拆句思路：用括号法标出主干和修饰成分，例如「主语[The researchers] 干了什么[found] 了[that...]」。让人一眼看出谁在干什么。
+3. 绝对不要出现「定语从句」「状语从句」「非谓语」「宾语从句」等语法术语，全部用大白话描述。比如不要说「这是定语从句修饰前面的名词」，而要说「这一坨是在补充说明前面那个东西」。
+4. 每句挑 1-2 个核心生词，格式：英文 词性 中文，例如「sustainable adj. 可持续的」。
+5. 中文翻译用大白话，像老师当面讲课，不要机翻腔。
+6. 整体控制在手机一屏能看完，不要长篇大论。
+7. 句式要覆盖英语二高频考点（修饰后置、插入语、并列结构等），但描述时不许用术语。
+
 【其他要求】
 今天是{datetime.date.today().strftime('%Y年%m月%d日')}。
-返回纯 JSON。"""
+返回纯 JSON，不要 Markdown 代码块。"""
 
     data = {
         "model": "deepseek-chat",
@@ -124,14 +148,41 @@ def build_html(data, day_number, today_str):
     </div>
     """
 
-    # 彻底精简的英语任务栏
+    # ===== 长难句渲染 =====
+    long_sentences = data.get('long_sentences', [])
+    sentences_html = ""
+    if long_sentences:
+        for i, item in enumerate(long_sentences, 1):
+            sentence = html_escape(item.get('sentence', ''))
+            structure = html_escape(item.get('structure', ''))
+            vocab = html_escape(item.get('vocab', ''))
+            translation = html_escape(item.get('translation', ''))
+            sentences_html += f"""
+            <div style="margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px dashed #e0d5e8;">
+                <div style="font-weight: bold; color: #4a6f8c; margin-bottom: 6px;">第{i}句</div>
+                <div style="margin-bottom: 6px;"><b>原句：</b>{sentence}</div>
+                <div style="margin-bottom: 6px;"><b>🔍 拆解：</b>{structure}</div>
+                <div style="margin-bottom: 6px;"><b>📚 生词：</b>{vocab}</div>
+                <div><b>💬 翻译：</b>{translation}</div>
+            </div>
+            """
+        sentences_html = sentences_html.rstrip()
+    else:
+        sentences_html = '<div style="color:#999;">今日长难句暂未生成，请稍后再试</div>'
+
     english_html = f"""
     <div class="content-card">
         <div class="section-title">📌 今日单词任务</div>
         <div class="content-text">
-✅ 考研单词：<b>炭炭40 + 墨墨40</b><br>
-✅ 旧词复习：按各自App规划完成<br>
+✅ 墨墨背单词：<b>80个新词</b><br>
+✅ 旧词复习：按墨墨App规划完成<br>
 ✅ 多邻国：1个小单元打卡
+        </div>
+    </div>
+    <div class="content-card">
+        <div class="section-title">📖 今日长难句（2句）</div>
+        <div class="content-text">
+            {sentences_html}
         </div>
     </div>
     """
@@ -162,14 +213,14 @@ def main():
     except Exception as e:
         print(f"DeepSeek 调用失败: {e}")
         quote = random.choice(QUOTES_BACKUP)
-        plan = EDITING_PLAN.get(day_number, {"task": "复习"})
         data = {
             "dog_quote": "小狗说：今天没网，但我依然陪你汪！",
             "quote_cn": quote["cn"],
             "quote_en": quote["en"],
             "politics_hotspot": "今日热点暂未更新，请稍后再试",
             "news_hotspot": "今日新闻暂未更新，请稍后再试",
-            "editing_task": "请按照大纲自己练习哦"
+            "editing_task": "请按照大纲自己练习哦",
+            "long_sentences": []
         }
 
     study_html, video_html, english_html, dog_quote = build_html(data, day_number, today_str)
